@@ -15,6 +15,7 @@
      */
     define("PROJECT_ROOT", dirname(dirname(__FILE__)) );
     define("TEMPLATE_DIR", PROJECT_ROOT . '/views');
+    define("MODEL_DIR", PROJECT_ROOT . '/models');
     define("DB_HOST", 'localhost');
     define("DB_DATABASE", 'festival_baza');
     define("DB_USERNAME", env('username'));

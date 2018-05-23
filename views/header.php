@@ -1,10 +1,9 @@
 <header>
     <nav>
         <ul>
-            <li><a href='#'>Početna</a></li>
-            <li><a href='#'>Festivali</a></li>
-            <li><a href='#'>Autor</a></li>
-            <li><a href='#'>Kontakt</a></li>
+        <?php foreach(fetchLinks($conn) as $link): ?>
+            <li><a href='#'><?= $link->labela ?></a></li>
+        <?php endforeach ?>
         </ul>
     </nav>
 </header>

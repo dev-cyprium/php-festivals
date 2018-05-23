@@ -1,7 +1,8 @@
 <?php
     require_once "constants.php";
-
-    $dsn = "mysql:dbname=${DB_DATABASE};host=${DB_HOST}";
+    $host = DB_HOST;
+    $name = DB_DATABASE;
+    $dsn = "mysql:host=$host;dbname=$name;charset=utf8";
     try {
         $conn = new PDO($dsn, DB_USERNAME, DB_PASSWORD);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

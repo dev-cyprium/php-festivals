@@ -1,6 +1,7 @@
 <?php
     require_once "../config/constants.php";
     require_once PROJECT_ROOT . "/config/database.php";
+    require_once MODEL_DIR . "/links.php";
 ?>
 <!DOCTYPE html>
 <html>
