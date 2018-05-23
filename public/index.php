@@ -1,5 +1,6 @@
 <?php
-    require_once("../config/constants.php");
+    require_once "../config/constants.php";
+    require_once PROJECT_ROOT . "/config/database.php";
 ?>
 <!DOCTYPE html>
 <html>
