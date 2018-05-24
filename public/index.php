@@ -1,6 +1,11 @@
 <?php
+    // Configuration
     require_once "../config/constants.php";
+
+    // Database
     require_once PROJECT_ROOT . "/config/database.php";
+   
+    // Models
     require_once MODEL_DIR . "/links.php";
 ?>
 <!DOCTYPE html>
@@ -14,7 +19,7 @@
 </head>
 <body>
     <?php include_once(TEMPLATE_DIR . "/header.php"); ?>
-
+    
     
 
     <?php include_once(TEMPLATE_DIR . "/footer.php"); ?>
