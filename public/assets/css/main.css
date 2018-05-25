@@ -37,3 +37,16 @@ header nav ul li a:focus,
 header nav ul li a.active {
     color: #0353a4;
 }
+
+/*
+    SVG animation
+*/
+
+.circle-star {
+    opacity: 0;
+    transition: opacity ease-in 1s;
+}
+
+.circle-star.active {
+    opacity: 1;
+}

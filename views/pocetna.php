@@ -1,0 +1,1 @@
+<?= file_get_contents(PROJECT_ROOT . "/public/assets/images/serbia.svg"); ?>
