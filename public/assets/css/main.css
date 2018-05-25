@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+header nav {
+    margin: 2.2rem auto;
+    max-width: 100rem;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+}
+
+header nav ul li {
+    padding: .5em;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: #111;
+    font-weight: 700;
+}
+
+header nav ul li a:hover,
+header nav ul li a:focus 
+header nav ul li a.active, {
+    color: #0353a4;
+}
