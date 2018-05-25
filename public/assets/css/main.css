@@ -33,7 +33,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover,
-header nav ul li a:focus 
-header nav ul li a.active, {
+header nav ul li a:focus, 
+header nav ul li a.active {
     color: #0353a4;
 }
