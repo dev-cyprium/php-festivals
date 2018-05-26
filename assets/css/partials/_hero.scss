@@ -3,7 +3,9 @@
 */
 #center {
     display: flex;
-    @include center-width(5rem);
+    @include center-width();
+    margin-top: 5rem;
+    min-height: 90vh;
 }
 
 #map {

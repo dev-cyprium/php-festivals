@@ -1,0 +1,24 @@
+#acc-tabs {
+    display: flex;
+    @include center-width();
+    .tab {
+        flex: 1;
+        text-align: center;
+        padding: 1em 0;
+        &.active {
+            border-bottom: 3px solid $primary;
+        }
+        i {
+            font-size: 2rem;
+            padding: .85em;
+            border: 2px solid $primary;
+            border-radius: 50%;
+            color: $primary;
+        }
+    }   
+}
+
+#tab-content {
+    min-height: 30rem;
+    @include center-width();
+}
