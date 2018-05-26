@@ -46,6 +46,7 @@ header {
   min-height: 90vh; }
 
 #map {
+  display: flex;
   max-width: 50rem; }
 
 #hero-title {
@@ -94,16 +95,20 @@ header {
     text-align: center;
     padding: 1em 0; }
     #acc-tabs .tab.active {
-      border-bottom: 3px solid #0353a4; }
+      border-top: 3px solid #0353a4;
+      background: rgba(0, 0, 0, 0.1); }
     #acc-tabs .tab i {
       font-size: 2rem;
-      padding: .85em;
+      line-height: 46px;
+      width: 5rem;
+      height: 5rem;
       border: 2px solid #0353a4;
       border-radius: 50%;
       color: #0353a4; }
 
 #tab-content {
   min-height: 30rem;
+  background: rgba(0, 0, 0, 0.1);
   max-width: 120rem;
   margin: 0 auto; }
 
