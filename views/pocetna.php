@@ -64,8 +64,19 @@
 <div class='thoughts-slider'>
     <blockquote>
         <p>"Rad za Festivian platformom je bio pun pogodak. Brzo organizovanje, odličan
-        sistem naplate i sve na jednom mestu. Pun pogodak!"</p>
+        sistem naplate i sve na jednom mestu. Sve pohvale!"</p>
         <span>-Belgrade Beer Fest</span>
     </blockquote>
     
+</div>
+<div class='bg-wrap'>
+    <div class='contact-form'>
+        <h1>Pišite nam</h1>
+        <form>
+            <input type='text' placeholder='Mail' />
+            <textarea placeholder='Poruka'>
+            </textarea>
+            <button>Posašalji</button>
+        </form>
+    </div>
 </div>

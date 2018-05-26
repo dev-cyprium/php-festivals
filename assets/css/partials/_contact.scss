@@ -1,0 +1,53 @@
+.contact-form {
+    @include center-width();
+    h1 {
+        text-align: center;
+        color: $primary;
+        font-size: 3.4rem;
+        margin-bottom: 2em;
+    }
+    input[type='text'] {
+        display: block;
+        padding: .75em;
+        width: 80%;
+        margin: 0 auto;
+        border: 2px solid $primary;
+        transition: border ease-out 800ms;
+        &:focus,
+        &:active {
+            border: 2px solid lighten($primary, 20%);
+        }
+    }
+    textarea {
+        display: block;
+        padding: .75em;
+        width: 80%;
+        max-width: 80%;
+        min-width: 80%;
+        height: 10rem;
+        max-height: 20rem;
+        margin: 0 auto;
+        border: 2px solid $primary;
+        margin-top: 1em;
+        &:focus,
+        &:active {
+            border: 2px solid lighten($primary, 20%);
+        }
+    }
+    button {
+        display: block;
+        padding: .75em;
+        width: 80%;
+        margin: 0 auto;
+        border: 2px solid $primary;
+        margin-top: 1em;
+        transition: border ease-out 800ms;
+        background: $primary;
+        color: white;
+        transition: all ease 800ms;
+        &:hover {
+            background: lighten($primary, 20%);
+            border: 2px solid lighten($primary, 20%);
+        }
+    }
+}

@@ -147,5 +147,50 @@ header {
       font-size: 2.4rem;
       margin-top: 1.4rem; }
 
+.contact-form {
+  max-width: 120rem;
+  margin: 0 auto; }
+  .contact-form h1 {
+    text-align: center;
+    color: #0353a4;
+    font-size: 3.4rem;
+    margin-bottom: 2em; }
+  .contact-form input[type='text'] {
+    display: block;
+    padding: .75em;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid #0353a4;
+    transition: border ease-out 800ms; }
+    .contact-form input[type='text']:focus, .contact-form input[type='text']:active {
+      border: 2px solid #1286fb; }
+  .contact-form textarea {
+    display: block;
+    padding: .75em;
+    width: 80%;
+    max-width: 80%;
+    min-width: 80%;
+    height: 10rem;
+    max-height: 20rem;
+    margin: 0 auto;
+    border: 2px solid #0353a4;
+    margin-top: 1em; }
+    .contact-form textarea:focus, .contact-form textarea:active {
+      border: 2px solid #1286fb; }
+  .contact-form button {
+    display: block;
+    padding: .75em;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid #0353a4;
+    margin-top: 1em;
+    transition: border ease-out 800ms;
+    background: #0353a4;
+    color: white;
+    transition: all ease 800ms; }
+    .contact-form button:hover {
+      background: #1286fb;
+      border: 2px solid #1286fb; }
+
 
 /*# sourceMappingURL=app.css.map*/
