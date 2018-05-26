@@ -344,7 +344,8 @@ var Tabs = function () {
         }
     }, {
         key: 'handler',
-        value: function handler(btn) {
+        value: function handler(ev, btn) {
+            ev.preventDefault();
             this.tabs.forEach(function (tab) {
                 return tab.classList.remove('active');
             });
@@ -358,9 +359,10 @@ var Tabs = function () {
             var _this2 = this;
 
             this.tabs.forEach(function (tab) {
+                var instance = _this2;
                 tab.addEventListener('click', function (e) {
-                    return _this2.handler(e.target);
-                });
+                    instance.handler(e, this);
+                }, false);
             });
         }
     }]);

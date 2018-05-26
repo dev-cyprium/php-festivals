@@ -15,7 +15,8 @@ export default class Tabs {
         })
     }
 
-    handler(btn) {
+    handler(ev, btn) {
+        ev.preventDefault()
         this.tabs.forEach((tab) => tab.classList.remove('active'))
         this.active = Array.from(this.tabs).indexOf(btn) + 1
         btn.classList.add('active')
@@ -24,7 +25,8 @@ export default class Tabs {
 
     _listeners() {
         this.tabs.forEach((tab) => {
-            tab.addEventListener('click', (e) => this.handler(e.target))
+            let instance = this
+            tab.addEventListener('click', function(e) { instance.handler(e, this) }, false)
         })
     }
 }
