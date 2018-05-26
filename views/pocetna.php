@@ -26,6 +26,18 @@
             <i class="fas fa-users"></i>
         </div>
     </div>
-    <div id="tab-content">
+    <div id="tab-content" class='tab-1'>
+        <h1>Festivian za korisnike</h1>
+        <ul>
+            <li>
+                Pretražite najaktuelnije festivale u Srbiji
+            </li>
+            <li>
+                Rezervišite karte po 20% jeftinijoj ceni
+            </li>
+            <li>
+                Proverite utiske i ocene festiavla
+            </li>
+        </ul>
     </div>
 </div>
