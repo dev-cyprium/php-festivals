@@ -47,11 +47,11 @@ header {
 
 #map {
   display: flex;
-  max-width: 50rem; }
+  flex: 1 0; }
 
 #hero-title {
   display: flex;
-  flex: 1 0 auto;
+  flex: 1 2;
   margin-left: 10rem;
   align-items: center;
   justify-content: center;
@@ -93,7 +93,8 @@ header {
   #acc-tabs .tab {
     flex: 1;
     text-align: center;
-    padding: 1em 0; }
+    padding: 1em 0;
+    cursor: pointer; }
     #acc-tabs .tab.active {
       border-top: 3px solid #0353a4;
       background: rgba(0, 0, 0, 0.1); }
@@ -114,17 +115,19 @@ header {
   #tab-content h1 {
     color: #0353a4;
     font-size: 4rem;
-    padding-top: 2em;
+    padding-top: .75em;
     padding-left: 3em; }
   #tab-content ul {
-    margin-top: 1.5em;
+    margin-top: 2em;
     font-size: 2rem;
     list-style-type: none;
-    border-left: 5px solid #0353a4;
     margin-left: 6em; }
     #tab-content ul li {
       padding-left: 2em;
       margin-bottom: .5em; }
+      #tab-content ul li i {
+        color: #0353a4;
+        margin-right: 1em; }
 
 
 /*# sourceMappingURL=app.css.map*/

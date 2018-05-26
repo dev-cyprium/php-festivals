@@ -10,12 +10,12 @@
 
 #map {
     display: flex;
-    max-width: 50rem;
+    flex: 1 0;
 }
 
 #hero-title {
     display: flex;
-    flex: 1 0 auto;
+    flex: 1 2;
     margin-left: 10rem;
     align-items: center;
     justify-content: center;

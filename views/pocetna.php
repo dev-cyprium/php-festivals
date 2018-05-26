@@ -30,12 +30,15 @@
         <h1>Festivian za korisnike</h1>
         <ul>
             <li>
+                <i class='fas fa-star'></i>
                 Pretražite najaktuelnije festivale u Srbiji
             </li>
             <li>
+                <i class='fas fa-star'></i>
                 Rezervišite karte po 20% jeftinijoj ceni
             </li>
             <li>
+                <i class='fas fa-star'></i>
                 Proverite utiske i ocene festiavla
             </li>
         </ul>
