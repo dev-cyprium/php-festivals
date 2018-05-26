@@ -1,0 +1,54 @@
+/*
+    Map
+*/
+#center {
+    display: flex;
+    @include center-width(5rem);
+}
+
+#map {
+    max-width: 50rem;
+}
+
+#hero-title {
+    display: flex;
+    flex: 1 0 auto;
+    margin-left: 10rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rem;
+    flex-direction: column;
+    a {
+        background: $primary;
+        color: #fafafa;
+        text-decoration: none;
+        padding: .7em;
+        font-size: 2.5rem;
+        margin-top: .7em;
+        text-transform: uppercase;
+        box-shadow: 4px 4px 16px -2px gray;
+    }
+    h1 {
+        font-size: 8.2rem;
+        color: $primary;
+        letter-spacing: .7rem;
+        font-family: 'Permanent Marker', sans-serif;
+    }
+    p {
+        font-size: 1.7rem;
+        max-width: 50rem;
+        text-align: center;
+        margin: .3em 0;
+        line-height: 1.2em;
+        margin-bottom: 1em;
+    }
+}
+
+.circle-star {
+    opacity: 0;
+    transition: opacity ease-in 1s;
+}
+
+.circle-star.active {
+    opacity: 1;
+}

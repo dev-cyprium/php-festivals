@@ -12,8 +12,8 @@ header {
   background: #0353a4;
   box-shadow: 0px 2px 6px 1px gray; }
   header nav {
-    margin: 0 auto;
-    max-width: 120rem; }
+    max-width: 120rem;
+    margin: 0 auto; }
   header ul {
     list-style-type: none;
     display: flex;
@@ -51,34 +51,28 @@ header {
   justify-content: center;
   margin-bottom: 20rem;
   flex-direction: column; }
+  #hero-title a {
+    background: #0353a4;
+    color: #fafafa;
+    text-decoration: none;
+    padding: .7em;
+    font-size: 2.5rem;
+    margin-top: .7em;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 16px -2px gray; }
+  #hero-title h1 {
+    font-size: 8.2rem;
+    color: #0353a4;
+    letter-spacing: .7rem;
+    font-family: 'Permanent Marker', sans-serif; }
+  #hero-title p {
+    font-size: 1.7rem;
+    max-width: 50rem;
+    text-align: center;
+    margin: .3em 0;
+    line-height: 1.2em;
+    margin-bottom: 1em; }
 
-#hero-title a {
-  background: #0353a4;
-  color: #fafafa;
-  text-decoration: none;
-  padding: .7em;
-  font-size: 2.5rem;
-  margin-top: .7em;
-  text-transform: uppercase;
-  box-shadow: 4px 4px 16px -2px gray; }
-
-#hero-title h1 {
-  font-size: 8.2rem;
-  color: #0353a4;
-  letter-spacing: .7rem;
-  font-family: 'Permanent Marker', sans-serif; }
-
-#hero-title p {
-  font-size: 1.7rem;
-  max-width: 50rem;
-  text-align: center;
-  margin: .3em 0;
-  line-height: 1.2em;
-  margin-bottom: 1em; }
-
-/*
-    SVG image
-*/
 .circle-star {
   opacity: 0;
   transition: opacity ease-in 1s; }

@@ -1,2 +1,7 @@
 // Variables
 $primary: #0353a4;
+
+@mixin center-width($margin:0, $width:120rem) {
+    max-width: $width;
+    margin: $margin auto;
+}
