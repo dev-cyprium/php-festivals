@@ -1,2 +1,8 @@
 # Ignore the env json file
 env.json
+
+# Ignore node modules
+assets/node_modules
+
+# Ignore vscode
+.vscode
