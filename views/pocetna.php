@@ -18,7 +18,7 @@
     </div>
 </div>
 <div class='bg-wrap'>
-    <div id="acc-tabs">
+    <div id="acc-tabs" class='tabs'>
         <div class='tab active'>
             <i class="fas fa-user"></i>
         </div>
@@ -26,7 +26,7 @@
             <i class="fas fa-users"></i>
         </div>
     </div>
-    <div id="tab-content" class='tab-1'>
+    <div class="tab-content" data-tab='1'>
         <h1>Festivian za korisnike</h1>
         <ul>
             <li>
@@ -40,6 +40,23 @@
             <li>
                 <i class='fas fa-star'></i>
                 Proverite utiske i ocene festiavla
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content" data-tab='2'>
+        <h1>Festivian za organizatore</h1>
+        <ul>
+            <li>
+                <i class='fas fa-star'></i>
+                Organizujte vaš festival uz pomoć naših volontera
+            </li>
+            <li>
+                <i class='fas fa-star'></i>
+                Marketing preko naše platforme uključen u ponudu
+            </li>
+            <li>
+                <i class='fas fa-star'></i>
+                Ostavite planiranje na nama
             </li>
         </ul>
     </div>

@@ -154,12 +154,17 @@ var _map = require("./map.js");
 
 var _map2 = _interopRequireDefault(_map);
 
+var _tabs = require("./tabs.js");
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Main JS file
 function boot() {
     var map = new _map2.default();
-} // Main JS file
-
+    var tabs = new _tabs2.default();
+}
 
 window.addEventListener('DOMContentLoaded', boot);
 });
@@ -303,6 +308,67 @@ var Map = function () {
 }();
 
 exports.default = Map;
+});
+
+;require.register("js/tabs.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Tabs = function () {
+    function Tabs() {
+        _classCallCheck(this, Tabs);
+
+        this.tab = document.querySelectorAll('.tabs')[0];
+        this.tabs = this.tab.querySelectorAll('.tab');
+        this.active = 1;
+        this._listeners();
+        this.matchState();
+    }
+
+    _createClass(Tabs, [{
+        key: 'matchState',
+        value: function matchState() {
+            var _this = this;
+
+            this.tab.parentNode.querySelectorAll('.tab-content').forEach(function (tab) {
+                var id = tab.dataset.tab;
+                if (id != _this.active) tab.style.display = 'none';else tab.style.display = 'block';
+            });
+        }
+    }, {
+        key: 'handler',
+        value: function handler(btn) {
+            this.tabs.forEach(function (tab) {
+                return tab.classList.remove('active');
+            });
+            this.active = Array.from(this.tabs).indexOf(btn) + 1;
+            btn.classList.add('active');
+            this.matchState();
+        }
+    }, {
+        key: '_listeners',
+        value: function _listeners() {
+            var _this2 = this;
+
+            this.tabs.forEach(function (tab) {
+                tab.addEventListener('click', function (e) {
+                    return _this2.handler(e.target);
+                });
+            });
+        }
+    }]);
+
+    return Tabs;
+}();
+
+exports.default = Tabs;
 });
 
 ;require.register("___globals___", function(exports, require, module) {
