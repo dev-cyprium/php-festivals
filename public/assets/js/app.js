@@ -147,6 +147,19 @@ var __makeRelativeRequire = function(require, mappings, pref) {
     return require(name);
   }
 };
+require.register("js/alerts.js", function(exports, require, module) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var Alerts = {
+    createAlert: function createAlert(message) {}
+};
+
+exports.default = Alerts;
+});
+
 require.register("js/app.js", function(exports, require, module) {
 "use strict";
 
