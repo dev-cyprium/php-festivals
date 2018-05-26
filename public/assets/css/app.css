@@ -81,7 +81,7 @@ header {
 
 .circle-star {
   opacity: 0;
-  transition: opacity ease-in 1s; }
+  transition: opacity ease-in 500ms; }
 
 .circle-star.active {
   opacity: 1; }

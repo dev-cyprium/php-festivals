@@ -173,25 +173,78 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var SPEED = 150;
+var SPEED = 75;
+var ANIMATE_SPEED = 500;
+var INIT_SAMPLE = 6;
+
+var times = function times(x) {
+    return function (f) {
+        if (x > 0) {
+            f();
+            times(x - 1)(f);
+        }
+    };
+};
+
+var Arr = function () {
+    function Arr() {
+        var lst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+        _classCallCheck(this, Arr);
+
+        this.position = 0;
+        this.list = lst;
+    }
+
+    _createClass(Arr, [{
+        key: 'next',
+        value: function next() {
+            return this.list[this.position++];
+        }
+    }, {
+        key: 'push',
+        value: function push(item) {
+            this.list.push(item);
+        }
+    }, {
+        key: 'splice',
+        value: function splice(index, length) {
+            this.list.splice(index, length);
+        }
+    }, {
+        key: 'sample',
+        value: function sample() {
+            var randIndex = Math.floor(Math.random() * this.list.length);
+            var item = this.list[randIndex];
+            this.list.splice(randIndex, 1);
+            return item;
+        }
+    }]);
+
+    return Arr;
+}();
 
 var Map = function () {
     function Map() {
         _classCallCheck(this, Map);
 
-        this.markers = document.querySelectorAll('.circle-star');
-        this.position = 0;
-        if (this.markers.length > 0) {
-            this.animate(this.next());
-        }
+        var nodes = document.querySelectorAll('.circle-star');
+        this.markers = new Arr([].concat(_toConsumableArray(nodes)));
+        this.samples = new Arr();
+        // this.markers.forEach((marker, i) => marker.dataset.id = i)
+        // this.animate(this.next())
+        this._sample(INIT_SAMPLE);
+        this._animateSample(this.samples.next());
     }
 
     _createClass(Map, [{
         key: 'next',
         value: function next() {
-            return this.markers[this.position++];
+            return this.markers.list[this.position++];
         }
     }, {
         key: 'animate',
@@ -205,6 +258,44 @@ var Map = function () {
             setTimeout(function () {
                 return _this.animate(_this.next());
             }, SPEED);
+        }
+    }, {
+        key: '_animateRecurse',
+        value: function _animateRecurse() {
+            var vanish = this.samples.sample();
+            vanish.classList.remove('active');
+            var next = this.markers.sample();
+            setTimeout(function () {
+                return next.classList.add('active');
+            }, ANIMATE_SPEED);
+            this.markers.push(vanish);
+            this.samples.push(next);
+            setTimeout(this._animateRecurse.bind(this), SPEED + 2 * ANIMATE_SPEED);
+        }
+    }, {
+        key: '_animateSample',
+        value: function _animateSample(sample) {
+            var _this2 = this;
+
+            if (!sample) {
+                setTimeout(function () {
+                    _this2._animateRecurse();
+                }, ANIMATE_SPEED);
+                return;
+            }
+            sample.classList.add('active');
+            setTimeout(function () {
+                return _this2._animateSample(_this2.samples.next());
+            }, SPEED);
+        }
+    }, {
+        key: '_sample',
+        value: function _sample(size) {
+            var _this3 = this;
+
+            times(size)(function () {
+                return _this3.samples.push(_this3.markers.sample());
+            });
         }
     }]);
 
