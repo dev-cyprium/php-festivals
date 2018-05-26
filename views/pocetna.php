@@ -61,3 +61,6 @@
         </ul>
     </div>
 </div>
+<div class='thoughts-slider'>
+    
+</div>

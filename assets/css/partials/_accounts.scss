@@ -26,6 +26,7 @@
     background: rgba(0, 0, 0, 0.1);
     @include center-width();
     padding: 2em 0;
+    padding-bottom: 8em;
     h1 {
         color: $primary;
         font-size: 4rem;
