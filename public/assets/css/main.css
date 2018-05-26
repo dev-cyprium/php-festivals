@@ -59,6 +59,10 @@ header nav ul li a.active {
     margin: 5rem auto;
 }
 
+#map {
+    max-width: 50rem;
+}
+
 #hero-title {
     display: flex;
     flex: 1 0 auto;
@@ -74,14 +78,14 @@ header nav ul li a.active {
     color: #fafafa;
     text-decoration: none;
     padding: .7em;
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-top: .7em;
     text-transform: uppercase;
     box-shadow: 4px 4px 16px -2px gray;
 }
 
 #hero-title h1 {
-    font-size: 6rem;
+    font-size: 8.2rem;
     color: #0353a4;
     letter-spacing: .7rem;
     font-family: 'Permanent Marker', sans-serif;
@@ -92,6 +96,8 @@ header nav ul li a.active {
     max-width: 50rem;
     text-align: center;
     margin: .3em 0;
+    line-height: 1.2em;
+    margin-bottom: 1em;
 }
 
 /*
