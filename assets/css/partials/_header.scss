@@ -1,0 +1,29 @@
+header {
+    background: $primary;
+    box-shadow: 0px 2px 6px 1px gray;
+    nav {
+        margin: 0 auto;
+        max-width: 120rem;
+    }
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 1rem;
+        padding: 2em 0;
+        li {
+            padding: .5em;
+            margin: 0 1em;
+            a {
+                text-decoration: none;
+                font-size: 1.7rem;
+                text-transform: uppercase;
+                color: white;
+                font-weight: 700;
+                &:hover, &:focus, &.active {
+                     color: #b9d6f2;
+                }
+            }
+        }
+    }
+}

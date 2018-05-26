@@ -9,46 +9,10 @@ html {
     font-family: 'Montserrat', sans-serif;
 }
 
-/*
-    Header
-*/
+@import 'variables';
 
-header {
-    background: #0353a4;
-    box-shadow: 0px 2px 6px 1px gray;
-}
+@import 'partials/header';
 
-header nav {
-    margin: 0 auto;
-    max-width: 120rem;
-}
-
-header nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 1rem;
-    padding: 2em 0;
-}
-
-header nav ul li {
-    padding: .5em;
-    margin: 0 1em;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    color: white;
-    font-weight: 700;
-}
-
-header nav ul li a:hover,
-header nav ul li a:focus, 
-header nav ul li a.active {
-    color: #b9d6f2;
-}
 
 /*
     Map
@@ -74,7 +38,7 @@ header nav ul li a.active {
 }
 
 #hero-title a {
-    background: #0353a4;
+    background: $primary;
     color: #fafafa;
     text-decoration: none;
     padding: .7em;
@@ -86,7 +50,7 @@ header nav ul li a.active {
 
 #hero-title h1 {
     font-size: 8.2rem;
-    color: #0353a4;
+    color: $primary;
     letter-spacing: .7rem;
     font-family: 'Permanent Marker', sans-serif;
 }
