@@ -111,6 +111,9 @@ header {
   background: rgba(0, 0, 0, 0.1);
   max-width: 120rem;
   margin: 0 auto; }
+  #tab-content h1 {
+    color: #0353a4;
+    font-size: 3.2rem; }
 
 
 /*# sourceMappingURL=app.css.map*/

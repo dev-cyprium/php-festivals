@@ -25,4 +25,8 @@
     min-height: 30rem;
     background: rgba(0, 0, 0, 0.1);
     @include center-width();
+    h1 {
+        color: $primary;
+        font-size: 3.2rem;
+    }
 }
