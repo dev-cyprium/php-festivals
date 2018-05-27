@@ -10825,7 +10825,7 @@ var Contact = function () {
     }, {
         key: 'receiveData',
         value: function receiveData(data, status, xhr) {
-            console.log(status);
+            App.alerts.createAlert('Response: ' + status);
         }
     }]);
 

@@ -21,6 +21,6 @@ export default class Contact {
     }
 
     receiveData(data, status, xhr) {
-        console.log(status)
+        App.alerts.createAlert(`Response: ${status}`)
     }
 }

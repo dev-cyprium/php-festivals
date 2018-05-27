@@ -3,7 +3,7 @@
         <ul>
         <?php foreach(fetchLinks($conn) as $link): ?>
             <li>
-                <a class='<?= $active_name == $link->name ? "active" : "" ?>' href='<?= "/" . $link->name ?>'>
+                <a class='<?= $route['route'] == $link->name ? "active" : "" ?>' href='<?= "/" . $link->name ?>'>
                 <?= $link->labela ?>
                 </a>
             </li>

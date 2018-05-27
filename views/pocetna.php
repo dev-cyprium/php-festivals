@@ -17,7 +17,7 @@
         <?= file_get_contents(PROJECT_ROOT . "/public/assets/images/serbia.svg"); ?>
     </div>
 </div>
-<div class='bg-wrap'>
+<div class='bg-wrap p-8rem'>
     <div id="acc-tabs" class='tabs'>
         <div class='tab active'>
             <i class="fas fa-user"></i>
