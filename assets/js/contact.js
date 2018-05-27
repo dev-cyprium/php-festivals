@@ -9,7 +9,7 @@ export default class Contact {
     handle(e) {
         e.preventDefault()
         $.ajax({
-            url: '/v1/message',
+            url: '/api/message',
             method: 'POST',
             success: (data, _, xhr) => {
                 this.receiveData(data, xhr.status, xhr)

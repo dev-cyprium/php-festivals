@@ -13,6 +13,7 @@
         margin: 0 auto;
         border: 2px solid $primary;
         transition: border ease-out 800ms;
+        background: transparent;
         &:focus,
         &:active {
             border: 2px solid lighten($primary, 20%);
@@ -29,6 +30,7 @@
         margin: 0 auto;
         border: 2px solid $primary;
         margin-top: 1em;
+        background: transparent;
         &:focus,
         &:active {
             border: 2px solid lighten($primary, 20%);

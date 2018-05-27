@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     // Configuration
     require_once "../config/constants.php";
     require_once "../config/router.php";
@@ -19,9 +20,17 @@
     <?php include_once(TEMPLATE_DIR . "/includes.php"); ?>
 </head>
 <body>
-    <?php $active_name = resolveRoute($conn); ?>
-    <?php include_once(TEMPLATE_DIR . "/header.php"); ?>
-    <?php include_once(TEMPLATE_DIR . "/$active_name.php"); ?>
-    <?php include_once(TEMPLATE_DIR . "/footer.php"); ?>
+    <?php 
+        $route = resolveRoute($conn); 
+        if($route['type'] == 'web') {
+            include_once(TEMPLATE_DIR . "/header.php");
+            include_once(TEMPLATE_DIR . "/{$route['route']}.php");
+            include_once(TEMPLATE_DIR . "/footer.php");
+        } else if($route['type'] == 'api') {
+            ob_clean();
+            require_once(API_DIR . "/{$route['route']}.php");
+            exit();
+        }
+    ?>
 </body>
 </html>

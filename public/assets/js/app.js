@@ -10812,7 +10812,7 @@ var Contact = function () {
 
             e.preventDefault();
             _jquery2.default.ajax({
-                url: '/v1/message',
+                url: '/api/message',
                 method: 'POST',
                 success: function success(data, _, xhr) {
                     _this2.receiveData(data, xhr.status, xhr);

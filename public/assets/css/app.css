@@ -185,7 +185,8 @@ header {
     width: 80%;
     margin: 0 auto;
     border: 2px solid #0353a4;
-    transition: border ease-out 800ms; }
+    transition: border ease-out 800ms;
+    background: transparent; }
     .contact-form input[type='text']:focus, .contact-form input[type='text']:active {
       border: 2px solid #1286fb; }
   .contact-form textarea {
@@ -198,7 +199,8 @@ header {
     max-height: 20rem;
     margin: 0 auto;
     border: 2px solid #0353a4;
-    margin-top: 1em; }
+    margin-top: 1em;
+    background: transparent; }
     .contact-form textarea:focus, .contact-form textarea:active {
       border: 2px solid #1286fb; }
   .contact-form button {
