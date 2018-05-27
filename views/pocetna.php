@@ -74,8 +74,7 @@
         <h1>Pišite nam</h1>
         <form action="/pocetna" method="POST">
             <input type='text' placeholder='Mail' />
-            <textarea placeholder='Poruka'>
-            </textarea>
+            <textarea placeholder='Poruka'></textarea>
             <button>Posašalji</button>
         </form>
     </div>

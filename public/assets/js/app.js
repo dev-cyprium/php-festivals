@@ -10757,21 +10757,85 @@ var _alerts = require("./alerts");
 
 var _alerts2 = _interopRequireDefault(_alerts);
 
+var _contact = require("./contact.js");
+
+var _contact2 = _interopRequireDefault(_contact);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.App = {}; // Main JS file
-
+// Main JS file
+window.App = {};
 App.alerts = _alerts2.default;
 
 function boot() {
     var map = new _map2.default();
     var tabs = new _tabs2.default();
+    var contact = new _contact2.default();
 }
 
 window.addEventListener('DOMContentLoaded', boot);
 });
 
-require.register("js/map.js", function(exports, require, module) {
+require.register("js/contact.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Contact = function () {
+    function Contact() {
+        var _this = this;
+
+        _classCallCheck(this, Contact);
+
+        this.form = (0, _jquery2.default)('.contact-form form');
+        this.form.submit(function (e) {
+            return _this.handle(e);
+        });
+    }
+
+    _createClass(Contact, [{
+        key: 'handle',
+        value: function handle(e) {
+            var _this2 = this;
+
+            e.preventDefault();
+            _jquery2.default.ajax({
+                url: '/v1/message',
+                method: 'POST',
+                success: function success(data, _, xhr) {
+                    _this2.receiveData(data, xhr.status, xhr);
+                },
+                error: function error(_, status, xhr) {
+                    _this2.receiveData(null, xhr.status, xhr);
+                }
+            });
+        }
+    }, {
+        key: 'receiveData',
+        value: function receiveData(data, status, xhr) {
+            console.log(status);
+        }
+    }]);
+
+    return Contact;
+}();
+
+exports.default = Contact;
+});
+
+;require.register("js/map.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
