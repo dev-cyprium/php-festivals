@@ -9,7 +9,7 @@
     input[type='text'] {
         display: block;
         padding: .75em;
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         border: 2px solid $primary;
         transition: border ease-out 800ms;
@@ -19,21 +19,25 @@
             border: 2px solid lighten($primary, 20%);
         }
     }
-    textarea {
+    .form-wrap {
         display: block;
-        padding: .75em;
-        width: 80%;
-        max-width: 80%;
-        min-width: 80%;
-        height: 10rem;
-        max-height: 20rem;
         margin: 0 auto;
-        border: 2px solid $primary;
-        margin-top: 1em;
-        background: transparent;
-        &:focus,
-        &:active {
-            border: 2px solid lighten($primary, 20%);
+        max-width: 80%;
+        textarea {
+            border: 2px solid $primary;
+            background: transparent;
+            width: 100%;
+            min-height: 10rem;
+            max-width: 100%;
+            min-width: 50%;
+            max-height: 20rem;
+            margin-top: 2rem;
+            padding: .75em;
+            transition: border ease-out 800ms;
+            &:focus,
+            &:active {
+                border: 2px solid lighten($primary, 20%);
+            }
         }
     }
     button {

@@ -10811,21 +10811,40 @@ var Contact = function () {
             var _this2 = this;
 
             e.preventDefault();
+            this._removeErr();
             _jquery2.default.ajax({
                 url: '/api/message',
                 method: 'POST',
-                success: function success(data, _, xhr) {
-                    _this2.receiveData(data, xhr.status, xhr);
+                success: function success(data, textStatus, xhr) {
+                    _this2.receiveData(data, xhr.status);
                 },
-                error: function error(_, status, xhr) {
-                    _this2.receiveData(null, xhr.status, xhr);
+                error: function error(xhr) {
+                    _this2.receiveData(JSON.parse(xhr.responseText), xhr.status);
                 }
             });
         }
     }, {
+        key: '_removeErr',
+        value: function _removeErr() {
+            this.form.find('#err-message').text("");
+            this.form.find('#message').removeClass('form-error');
+            this.form.find("#err-email").text("");
+            this.form.find("#email").removeClass('form-error');
+        }
+    }, {
         key: 'receiveData',
-        value: function receiveData(data, status, xhr) {
-            App.alerts.createAlert('Response: ' + status);
+        value: function receiveData(data, status) {
+            if (status == 400) {
+                if (data["message"]) {
+                    this.form.find('#err-message').text(data['message']);
+                    this.form.find('#message').addClass('form-error');
+                }
+
+                if (data["email"]) {
+                    this.form.find("#err-email").text(data['email']);
+                    this.form.find("#email").addClass('form-error');
+                }
+            }
         }
     }]);
 

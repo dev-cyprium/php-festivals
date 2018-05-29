@@ -73,8 +73,14 @@
     <div class='contact-form'>
         <h1>Pišite nam</h1>
         <form action="/pocetna" method="POST">
-            <input type='text' placeholder='Mail' />
-            <textarea placeholder='Poruka'></textarea>
+            <div class='form-wrap'>
+                <input type='text' id='email' placeholder='Mail' />
+                <span id='err-email' class='err-tooltip'></span>
+            </div>
+            <div class='form-wrap'>    
+                <textarea id='message' placeholder='Poruka'></textarea>
+                <span id='err-message' class='err-tooltip'></span>
+            </div>
             <button>Posašalji</button>
         </form>
     </div>

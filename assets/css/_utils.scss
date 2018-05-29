@@ -40,3 +40,12 @@
         }
     }
 }
+
+.form-error {
+    border: 2px solid crimson !important;
+}
+ .err-tooltip {
+        display: block;
+        color: crimson;
+        font-size: 1.4rem;
+    }

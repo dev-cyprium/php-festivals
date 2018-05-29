@@ -44,6 +44,14 @@ html {
     .alert .closebtn:hover {
       color: crimson; }
 
+.form-error {
+  border: 2px solid crimson !important; }
+
+.err-tooltip {
+  display: block;
+  color: crimson;
+  font-size: 1.4rem; }
+
 header {
   background: #0353a4;
   box-shadow: 0px 2px 6px 1px gray; }
@@ -194,27 +202,30 @@ header {
   .contact-form input[type='text'] {
     display: block;
     padding: .75em;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     border: 2px solid #0353a4;
     transition: border ease-out 800ms;
     background: transparent; }
     .contact-form input[type='text']:focus, .contact-form input[type='text']:active {
       border: 2px solid #1286fb; }
-  .contact-form textarea {
+  .contact-form .form-wrap {
     display: block;
-    padding: .75em;
-    width: 80%;
-    max-width: 80%;
-    min-width: 80%;
-    height: 10rem;
-    max-height: 20rem;
     margin: 0 auto;
-    border: 2px solid #0353a4;
-    margin-top: 1em;
-    background: transparent; }
-    .contact-form textarea:focus, .contact-form textarea:active {
-      border: 2px solid #1286fb; }
+    max-width: 80%; }
+    .contact-form .form-wrap textarea {
+      border: 2px solid #0353a4;
+      background: transparent;
+      width: 100%;
+      min-height: 10rem;
+      max-width: 100%;
+      min-width: 50%;
+      max-height: 20rem;
+      margin-top: 2rem;
+      padding: .75em;
+      transition: border ease-out 800ms; }
+      .contact-form .form-wrap textarea:focus, .contact-form .form-wrap textarea:active {
+        border: 2px solid #1286fb; }
   .contact-form button {
     display: block;
     padding: .75em;

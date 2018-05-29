@@ -8,19 +8,37 @@ export default class Contact {
 
     handle(e) {
         e.preventDefault()
+        this._removeErr()
         $.ajax({
             url: '/api/message',
             method: 'POST',
-            success: (data, _, xhr) => {
-                this.receiveData(data, xhr.status, xhr)
+            success: (data, textStatus, xhr) => {
+                this.receiveData(data, xhr.status)
             },
-            error: (_, status, xhr) => {
-                this.receiveData(null, xhr.status, xhr)
+            error: (xhr) => {
+                this.receiveData(JSON.parse(xhr.responseText), xhr.status)
             }
         })
     }
 
-    receiveData(data, status, xhr) {
-        App.alerts.createAlert(`Response: ${status}`)
+    _removeErr() {
+        this.form.find('#err-message').text("")
+        this.form.find('#message').removeClass('form-error')  
+        this.form.find("#err-email").text("")
+        this.form.find("#email").removeClass('form-error')
+    }
+
+    receiveData(data, status) {
+        if(status == 400) {
+            if (data["message"]) {
+                this.form.find('#err-message').text(data['message'])
+                this.form.find('#message').addClass('form-error')
+            }
+
+            if (data["email"]) {
+                this.form.find("#err-email").text(data['email'])
+                this.form.find("#email").addClass('form-error')
+            }
+        }
     }
 }
