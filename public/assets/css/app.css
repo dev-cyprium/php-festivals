@@ -81,6 +81,9 @@ header {
 #map {
   display: flex;
   flex: 1 0; }
+  #map svg {
+    width: 100%;
+    height: auto; }
 
 #hero-title {
   display: flex;
