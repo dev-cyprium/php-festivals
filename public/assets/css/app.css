@@ -52,6 +52,12 @@ html {
   color: crimson;
   font-size: 1.4rem; }
 
+.col {
+  flex: 0 0 25%; }
+
+.col-2 {
+  flex: 1 0 50%; }
+
 header {
   background: #0353a4;
   box-shadow: 0px 2px 6px 1px gray; }
@@ -176,8 +182,7 @@ header {
 
 .thoughts-slider {
   background: #0353a4;
-  padding: 9rem 0;
-  margin-bottom: 5rem; }
+  padding: 9rem 0; }
   .thoughts-slider blockquote {
     max-width: 80rem;
     margin: 0 auto;
@@ -193,7 +198,9 @@ header {
 
 .contact-form {
   max-width: 120rem;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-bottom: 10rem;
+  padding-top: 7.5rem; }
   .contact-form h1 {
     text-align: center;
     color: #0353a4;
@@ -216,10 +223,10 @@ header {
       border: 2px solid #0353a4;
       background: transparent;
       width: 100%;
-      min-height: 10rem;
+      min-height: 20rem;
       max-width: 100%;
       min-width: 50%;
-      max-height: 20rem;
+      max-height: 40rem;
       margin-top: 2rem;
       padding: .75em;
       transition: border ease-out 800ms; }
@@ -235,10 +242,48 @@ header {
     transition: border ease-out 800ms;
     background: #0353a4;
     color: white;
-    transition: all ease 800ms; }
+    transition: all ease 800ms;
+    cursor: pointer; }
     .contact-form button:hover {
       background: #1286fb;
       border: 2px solid #1286fb; }
+
+footer {
+  background-image: url("/assets/images/sports.png"); }
+  footer .footer-wrap {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5rem 3rem; }
+    footer .footer-wrap .footer-center {
+      max-width: 120rem;
+      margin: 0 auto;
+      display: flex;
+      color: #0353a4; }
+      footer .footer-wrap .footer-center h1 {
+        font-size: 2.8rem;
+        margin-bottom: .75rem;
+        text-align: center; }
+      footer .footer-wrap .footer-center p {
+        color: black;
+        font-size: 1.8rem;
+        text-align: left; }
+
+.icons-connected {
+  margin-top: 3rem;
+  text-align: center; }
+  .icons-connected i {
+    font-size: 2.4rem;
+    margin: 0 .5rem;
+    width: 2em;
+    text-align: cenetr;
+    display: inline-block;
+    border-radius: 60px;
+    border: 1.5px solid #0353a4;
+    padding: .4em 0; }
+
+.logo-foot {
+  text-align: center; }
+  .logo-foot img {
+    width: 10rem; }
 
 
 /*# sourceMappingURL=app.css.map*/

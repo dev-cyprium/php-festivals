@@ -1,0 +1,44 @@
+footer {
+  background-image: url("/assets/images/sports.png");
+  .footer-wrap {
+    background: rgba(0, 0, 0, .1);
+    padding: 5rem 3rem;
+    .footer-center {
+      @include center-width();
+      display: flex;
+      color: $primary;
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: .75rem;
+        text-align: center;
+      }
+      p {
+        color: black;
+        font-size: 1.8rem;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.icons-connected {
+  margin-top: 3rem;
+  text-align: center;
+  i {
+    font-size: 2.4rem;
+    margin: 0 .5rem;
+    width: 2em;
+    text-align: cenetr;
+    display: inline-block;
+    border-radius: 60px;
+    border: 1.5px solid $primary;
+    padding: .4em 0;
+  }
+}
+
+.logo-foot {
+  text-align: center;
+  img {
+    width: 10rem;
+  }
+}
