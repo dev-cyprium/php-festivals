@@ -10815,6 +10815,10 @@ var Contact = function () {
             _jquery2.default.ajax({
                 url: '/api/message',
                 method: 'POST',
+                data: {
+                    email: '',
+                    message: ''
+                },
                 success: function success(data, textStatus, xhr) {
                     _this2.receiveData(data, xhr.status);
                 },

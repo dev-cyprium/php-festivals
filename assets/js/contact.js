@@ -12,6 +12,10 @@ export default class Contact {
         $.ajax({
             url: '/api/message',
             method: 'POST',
+            data: {
+                email: '',
+                message: ''
+            }, 
             success: (data, textStatus, xhr) => {
                 this.receiveData(data, xhr.status)
             },

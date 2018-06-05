@@ -72,7 +72,7 @@
 <div class='bg-wrap'>
     <div class='contact-form'>
         <h1>Pišite nam</h1>
-        <form action="/pocetna" method="POST">
+        <form action='#'>
             <div class='form-wrap'>
                 <input type='text' id='email' placeholder='Mail' />
                 <span id='err-email' class='err-tooltip'></span>
