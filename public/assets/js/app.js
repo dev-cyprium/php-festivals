@@ -11096,10 +11096,114 @@ exports.default = Tabs;
 });
 
 ;require.register("js/validators.js", function(exports, require, module) {
-"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.validations = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var VALIDATIONS = {
+  email: function email(value) {
+    return value.match(/^[a-z0-9\._\+\-]+@[a-z0-9\._]+$/);
+  },
+  password: function password(value) {
+    return value.match(/^(?=.*[$%^@#]).{5,100}$/);
+  }
+
+  /**
+   * Generic form validator
+   */
+
+};
+var Validator = function () {
+  function Validator() {
+    _classCallCheck(this, Validator);
+  }
+
+  _createClass(Validator, null, [{
+    key: 'validateField',
+    value: function validateField(input, validatorName, errField) {
+      var validator = VALIDATIONS[validatorName];
+      var value = input.val();
+      if (validator(value)) {
+        input.removeClass('form-error');
+        errField.text('');
+      } else {
+        input.addClass('form-error');
+        errField.text('Field ' + validatorName + ' has invalid format');
+      }
+    }
+  }, {
+    key: 'initializeFormValidators',
+    value: function initializeFormValidators() {
+      /**
+       * First we find all the forms in the document
+       * and throw away the ones without the data validator
+       */
+      var validatorForms = (0, _jquery2.default)("form").filter(function () {
+        return (0, _jquery2.default)(this).data("validator-namespace");
+      });
+      validatorForms.each(this._handle_form);
+    }
+  }, {
+    key: '_handle_form',
+    value: function _handle_form() {
+      var form = (0, _jquery2.default)(this);
+      var inputs = form.find('input');
+      form.submit(function (event) {
+        event.preventDefault();
+        var validations = [];
+        inputs.each(function () {
+          var input = (0, _jquery2.default)(this);
+          var name = input.data('validator-name');
+          var errF = input.parent().find('.form__errors');
+          /**
+           * We need to check if the data-validator-name is present
+           * and also make sure it's one of the valid filters.
+           * 
+           * If we don't have a filter, we let the developer know
+           * that he made a misatke via an usefull error message.
+           */
+          if (!name) {
+            console.error(input);
+            throw new Error('Input does not have a data-validator-name');
+            event.preventDefault();
+          }
+
+          if (!VALIDATIONS[name]) {
+            throw new Error('[' + name + '] doesn\'t exist as a valid validator options\n            Try using one of the following:\n            ' + Object.keys(VALIDATIONS).join(", ") + '  \n          ');
+            event.preventDefault();
+          }
+
+          /**
+           * No errors happaned at this point so we continue 
+           * validating the form
+           */
+          Validator.validateField(input, name, errF);
+        });
+      });
+    }
+  }]);
+
+  return Validator;
+}();
+
+exports.default = Validator;
+var validations = exports.validations = VALIDATIONS;
 });
 
-;require.alias("jquery/dist/jquery.js", "jquery");
+require.alias("jquery/dist/jquery.js", "jquery");
 require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
   
 });})();require('___globals___');
