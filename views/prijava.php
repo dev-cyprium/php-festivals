@@ -10,10 +10,18 @@
           placeholder='Kor. ime ili mail' 
           data-validator-name='email'  
         />
-        <span data-validator-error='email' class='form__errors'></span>
+        <span class='form__errors'></span>
       </div>
 
-      <input type='password' class="form__control" placeholder='Lozinka' />
+      <div class='form__group'>
+        <input 
+          type='password' 
+          class="form__control" 
+          placeholder='Lozinka' 
+          data-validator-name='password'
+        />
+        <span class='form__errors'></span>
+      </div>
       <button class='form__submit form__submit--primary'>
         Prijavi se
       </button>

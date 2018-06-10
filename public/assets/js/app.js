@@ -11097,76 +11097,9 @@ exports.default = Tabs;
 
 ;require.register("js/validators.js", function(exports, require, module) {
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.validations = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = require("jquery");
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var VALIDATIONS = {
-  email: function email(value) {
-    return value.match(/^[a-z0-9\._\+\-]+@[a-z0-9\._]+$/);
-  }
-
-  /**
-   * Generic form validator
-   */
-
-};
-var Validator = function () {
-  function Validator() {
-    _classCallCheck(this, Validator);
-  }
-
-  _createClass(Validator, null, [{
-    key: "validateForm",
-    value: function validateForm(form, validations) {
-      var errors = [];
-      for (var field in validations) {
-        var value = form.find("#" + field).val();
-        var fn = validations[field];
-
-        if (!fn(value)) {
-          var msg = "Field " + field + " supplid in wrong format";
-          if (!errors[field]) {
-            errors[field] = [];
-          }
-          errors[field].push(msg);
-        }
-      }
-    }
-  }, {
-    key: "initializeFormValidators",
-    value: function initializeFormValidators() {
-      /**
-       * First we find all the forms in the document
-       * and throw away the ones without the data validator
-       */
-      var forms = (0, _jquery2.default)("form").filter(function () {
-        return (0, _jquery2.default)(this).data("validator-namespace");
-      });
-      console.log(forms);
-    }
-  }]);
-
-  return Validator;
-}();
-
-exports.default = Validator;
-var validations = exports.validations = VALIDATIONS;
 });
 
-require.alias("jquery/dist/jquery.js", "jquery");
+;require.alias("jquery/dist/jquery.js", "jquery");
 require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
   
 });})();require('___globals___');
