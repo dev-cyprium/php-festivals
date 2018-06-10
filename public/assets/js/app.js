@@ -10816,8 +10816,8 @@ var Contact = function () {
                 url: '/api/message',
                 method: 'POST',
                 data: {
-                    email: '',
-                    message: ''
+                    email: this.form.find('#email').val(),
+                    message: this.form.find("#message").val()
                 },
                 success: function success(data, textStatus, xhr) {
                     _this2.receiveData(data, xhr.status);

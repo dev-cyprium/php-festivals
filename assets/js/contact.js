@@ -13,8 +13,8 @@ export default class Contact {
             url: '/api/message',
             method: 'POST',
             data: {
-                email: '',
-                message: ''
+                email: this.form.find('#email').val(),
+                message: this.form.find("#message").val()
             }, 
             success: (data, textStatus, xhr) => {
                 this.receiveData(data, xhr.status)
@@ -43,6 +43,8 @@ export default class Contact {
                 this.form.find("#err-email").text(data['email'])
                 this.form.find("#email").addClass('form-error')
             }
+        } else if(status == 200) {
+            
         }
     }
 }
