@@ -10848,6 +10848,10 @@ var Contact = function () {
                     this.form.find("#err-email").text(data['email']);
                     this.form.find("#email").addClass('form-error');
                 }
+            } else if (status == 200) {
+                this.form.find('#message').val('');
+                this.form.find('#email').val('');
+                App.alerts.createAlert("Hvala Vam! U najkracem roku ćemo Vam odgovoriti");
             }
         }
     }]);

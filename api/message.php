@@ -7,12 +7,12 @@
     $errors = [];
 
     if(!preg_match($msgReg, $message)) {
-        $errors['message'] = "Must be between 10 and 50 characters"; 
+        $errors['message'] = "Mora biti između 10 i 50 karaktera"; 
         $status = 400;
     }
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = "Must be in valid format";
+        $errors['email'] = "Mora biti u dobrom formatu";
         $status = 400;
     }
 
