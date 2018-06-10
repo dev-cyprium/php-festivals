@@ -308,6 +308,10 @@ footer {
 
 .form {
   font-size: 1.4rem; }
+  .form .form__group {
+    margin: 3em 0; }
+  .form .form__errors {
+    color: crimson; }
   .form .form__control {
     display: block;
     padding: 1em;
@@ -315,7 +319,7 @@ footer {
     border: 2px solid #0353a4;
     transition: border ease-out 800ms;
     background: transparent;
-    margin: 3.2em 0; }
+    margin-bottom: .75em; }
     .form .form__control:focus, .form .form__control:active {
       border: 2px solid #1286fb; }
   .form .form__submit {

@@ -1,10 +1,12 @@
 export default class Tabs {
     constructor() {
-        this.tab = document.querySelectorAll('.tabs')[0]
-        this.tabs = this.tab.querySelectorAll('.tab')
-        this.active = 1
-        this._listeners()
-        this.matchState()
+        if(document.querySelectorAll('tabs').length) {
+            this.tab = document.querySelectorAll('.tabs')[0]
+            this.tabs = this.tab.querySelectorAll('.tab')
+            this.active = 1
+            this._listeners()
+            this.matchState()
+        }
     }
 
     matchState() {

@@ -29,13 +29,13 @@ class Arr {
 
 export default class Map {
     constructor() {
-        let nodes = document.querySelectorAll('.circle-star')
-        this.markers = new Arr([...nodes])
-        this.samples = new Arr()
-       // this.markers.forEach((marker, i) => marker.dataset.id = i)
-       // this.animate(this.next())
-        this._sample(INIT_SAMPLE)
-        this._animateSample(this.samples.next())
+        if (document.querySelectorAll('.circle-star').length) {
+            let nodes = document.querySelectorAll('.circle-star')
+            this.markers = new Arr([...nodes])
+            this.samples = new Arr()
+            this._sample(INIT_SAMPLE)
+            this._animateSample(this.samples.next())
+        }
     }
 
     next() {
