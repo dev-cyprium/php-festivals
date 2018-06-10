@@ -2,12 +2,12 @@
     $message = $_POST['message'];
     $email   = $_POST['email'];
 
-    $msgReg = '/.{10,50}/';
+    $msgReg = '/^.{10,100}$/';
     $status = 200;
     $errors = [];
 
     if(!preg_match($msgReg, $message)) {
-        $errors['message'] = "Mora biti između 10 i 50 karaktera"; 
+        $errors['message'] = "Mora biti između 10 i 100 karaktera"; 
         $status = 400;
     }
 

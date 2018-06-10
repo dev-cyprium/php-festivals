@@ -232,6 +232,14 @@ header {
       transition: border ease-out 800ms; }
       .contact-form .form-wrap textarea:focus, .contact-form .form-wrap textarea:active {
         border: 2px solid #1286fb; }
+    .contact-form .form-wrap .counter {
+      font-size: 2rem;
+      margin-top: .5em;
+      content: "50";
+      display: block;
+      color: #0353a4; }
+      .contact-form .form-wrap .counter.danger {
+        color: crimson; }
   .contact-form button {
     display: block;
     padding: .75em;

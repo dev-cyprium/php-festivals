@@ -40,6 +40,16 @@
                 border: 2px solid lighten($primary, 20%);
             }
         }
+        .counter {
+            font-size: 2rem;
+            margin-top: .5em;
+            content: "50";
+            display: block;
+            color: $primary;
+            &.danger {
+                color: crimson;
+            }
+        }
     }
     button {
         display: block;

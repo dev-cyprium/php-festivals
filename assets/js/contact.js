@@ -4,6 +4,24 @@ export default class Contact {
     constructor() {
         this.form = $('.contact-form form')
         this.form.submit((e) => this.handle(e))
+        this.form.find('#message').on('keyup', (e) => this.handleKeyUp(e))
+        this.firstKey = true
+    }
+
+    handleKeyUp(e) {
+        if(this.firstKey) {
+            this.firstKey = false
+            this.form.find(".form-wrap:last-of-type").append(`<span class='counter'></span>`);
+        }
+        var count = 100 - this.form.find('#message').val().length;
+        if(count < 10) {
+            this.form.find('.counter').addClass('danger');
+        }
+
+        if(count > 10) {
+            this.form.find('.counter').removeClass('danger');
+        }
+        this.form.find('.counter').text(count);
     }
 
     handle(e) {

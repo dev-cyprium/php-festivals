@@ -10803,9 +10803,30 @@ var Contact = function () {
         this.form.submit(function (e) {
             return _this.handle(e);
         });
+        this.form.find('#message').on('keyup', function (e) {
+            return _this.handleKeyUp(e);
+        });
+        this.firstKey = true;
     }
 
     _createClass(Contact, [{
+        key: 'handleKeyUp',
+        value: function handleKeyUp(e) {
+            if (this.firstKey) {
+                this.firstKey = false;
+                this.form.find(".form-wrap:last-of-type").append('<span class=\'counter\'></span>');
+            }
+            var count = 100 - this.form.find('#message').val().length;
+            if (count < 10) {
+                this.form.find('.counter').addClass('danger');
+            }
+
+            if (count > 10) {
+                this.form.find('.counter').removeClass('danger');
+            }
+            this.form.find('.counter').text(count);
+        }
+    }, {
         key: 'handle',
         value: function handle(e) {
             var _this2 = this;
