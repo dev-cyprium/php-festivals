@@ -293,5 +293,44 @@ footer {
   .logo-foot img {
     width: 10rem; }
 
+.site-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  min-height: 60em;
+  max-width: 70rem;
+  margin: 0 auto; }
+  .site-form__title {
+    font-size: 4rem;
+    color: #0353a4;
+    text-align: center; }
+
+.form {
+  font-size: 1.4rem; }
+  .form .form__control {
+    display: block;
+    padding: 1em;
+    width: 100%;
+    border: 2px solid #0353a4;
+    transition: border ease-out 800ms;
+    background: transparent;
+    margin: 3.2em 0; }
+    .form .form__control:focus, .form .form__control:active {
+      border: 2px solid #1286fb; }
+  .form .form__submit {
+    display: block;
+    width: 8em;
+    margin: 0 auto;
+    padding: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background ease 250ms; }
+    .form .form__submit--primary {
+      background: #0353a4;
+      color: white; }
+      .form .form__submit--primary:hover {
+        background: #1286fb; }
+
 
 /*# sourceMappingURL=app.css.map*/

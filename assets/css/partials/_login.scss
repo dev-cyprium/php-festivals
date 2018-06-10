@@ -1,0 +1,47 @@
+.site-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  min-height: 60em;
+  @include center-width($width: 70rem);
+  &__title {
+    font-size: 4rem;
+    color: $primary;
+    text-align: center;
+  }
+}
+
+.form {
+  font-size: 1.4rem; 
+  .form__control {
+    display: block;
+    padding: 1em;
+    width: 100%;
+    border: 2px solid $primary;
+    transition: border ease-out 800ms;
+    background: transparent;
+    margin: 3.2em 0;
+    &:focus,
+    &:active {
+      border: 2px solid lighten($primary, 20%);
+    }
+  }
+  .form__submit {
+    display: block;
+    width: 8em;
+    margin: 0 auto;
+    padding: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background ease 250ms;
+  
+    &--primary {
+      background: $primary;
+      color: white;
+      &:hover {
+        background: lighten($primary, 20%);
+      }
+    }
+  }
+}
