@@ -305,6 +305,14 @@ footer {
     font-size: 4rem;
     color: #0353a4;
     text-align: center; }
+  .site-form__wrap p {
+    font-size: 1.5rem;
+    margin-top: .7em; }
+    .site-form__wrap p a {
+      text-decoration: none;
+      color: #0353a4; }
+      .site-form__wrap p a:hover, .site-form__wrap p a:active {
+        color: #1286fb; }
 
 .form {
   font-size: 1.4rem; }

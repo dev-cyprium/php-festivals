@@ -26,6 +26,7 @@
         Prijavi se
       </button>
     </form>
+    <p>Nemas nalog? <a href='/registracija'>Registruj se</a></p>
   </div>
 </div>
 
