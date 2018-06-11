@@ -11136,13 +11136,16 @@ var Validator = function () {
     value: function validateField(input, validatorName, errField) {
       var validator = VALIDATIONS[validatorName];
       var value = input.val();
-      if (validator(value)) {
+      var result = validator(value);
+      if (result) {
         input.removeClass('form-error');
         errField.text('');
       } else {
         input.addClass('form-error');
         errField.text('Field ' + validatorName + ' has invalid format');
       }
+
+      return result;
     }
   }, {
     key: 'initializeFormValidators',
@@ -11162,7 +11165,6 @@ var Validator = function () {
       var form = (0, _jquery2.default)(this);
       var inputs = form.find('input');
       form.submit(function (event) {
-        event.preventDefault();
         var validations = [];
         inputs.each(function () {
           var input = (0, _jquery2.default)(this);
@@ -11190,7 +11192,9 @@ var Validator = function () {
            * No errors happaned at this point so we continue 
            * validating the form
            */
-          Validator.validateField(input, name, errF);
+          if (!Validator.validateField(input, name, errF)) {
+            event.preventDefault();
+          }
         });
       });
     }

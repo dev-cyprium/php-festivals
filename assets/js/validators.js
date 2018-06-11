@@ -15,13 +15,16 @@ export default class Validator {
   static validateField(input, validatorName, errField) {
     let validator = VALIDATIONS[validatorName]
     let value = input.val()
-    if(validator(value)) {
+    let result = validator(value)
+    if(result) {
       input.removeClass('form-error')
       errField.text('')
     } else {
       input.addClass('form-error')
       errField.text(`Field ${validatorName} has invalid format`)
     }
+
+    return result
   }
 
   static initializeFormValidators() {
@@ -37,7 +40,6 @@ export default class Validator {
     let form = $(this)
     let inputs = form.find('input')
     form.submit(function(event) {
-      event.preventDefault()
       let validations = []
       inputs.each(function() {
         let input = $(this)
@@ -68,7 +70,9 @@ export default class Validator {
          * No errors happaned at this point so we continue 
          * validating the form
          */
-        Validator.validateField(input, name, errF)
+        if(!Validator.validateField(input, name, errF)) {
+          event.preventDefault()
+        }
       })
     })
   }
