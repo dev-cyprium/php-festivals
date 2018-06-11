@@ -11096,7 +11096,7 @@ exports.default = Tabs;
 });
 
 ;require.register("js/validators.js", function(exports, require, module) {
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -11105,7 +11105,7 @@ exports.validations = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jquery = require('jquery');
+var _jquery = require("jquery");
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -11114,11 +11114,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var VALIDATIONS = {
-  mail: function mail(value) {
-    return value.match(/^[a-z0-9\._\+\-]+@[a-z0-9\._]+$/);
+  mail: {
+    fn: function fn(value) {
+      return value.match(/^[a-z0-9\._\+\-]+@[a-z0-9\._]+$/);
+    },
+    msg: "Mail nije u dobrom formatu"
   },
-  lozinka: function lozinka(value) {
-    return value.match(/^(?=.*[$%^@#]).{5,100}$/);
+  lozinka: {
+    fn: function fn(value) {
+      return value.match(/^(?=.*[$%^@#]).{5,100}$/);
+    },
+    msg: "Lozinka mora da zadrzi bar jedan od [$, %, ^, @, #]"
+  },
+  ime: {
+    fn: function fn(value) {
+      return value.match(/^[A-ZŠĐČĆŽ][a-zšđčćž]+(\s[A-ZŠĐČĆŽ][a-zšđčćž]+)+$/);
+    },
+    msg: "Ime nije u dobrom formatu"
   }
 
   /**
@@ -11132,23 +11144,38 @@ var Validator = function () {
   }
 
   _createClass(Validator, null, [{
-    key: 'validateField',
+    key: "validateField",
     value: function validateField(input, validatorName, errField) {
       var validator = VALIDATIONS[validatorName];
       var value = input.val();
-      var result = validator(value);
+      var result = validator.fn(value);
       if (result) {
         input.removeClass('form-error');
         errField.text('');
       } else {
         input.addClass('form-error');
-        errField.text('Polje ' + validatorName + ' nema dobar format');
+        errField.text(validator.msg);
       }
 
       return result;
     }
   }, {
-    key: 'initializeFormValidators',
+    key: "validateEqual",
+    value: function validateEqual(inputOne, inputTwo, errField) {
+      var valueOne = inputOne.val();
+      var valueTwo = inputTwo.val();
+      var result = valueOne == valueTwo;
+      if (result) {
+        inputOne.removeClass('form-error');
+        errField.text('');
+      } else {
+        inputOne.addClass('form-error');
+        errField.text("Polje se ne poklapa");
+      }
+      return result;
+    }
+  }, {
+    key: "initializeFormValidators",
     value: function initializeFormValidators() {
       /**
        * First we find all the forms in the document
@@ -11159,42 +11186,54 @@ var Validator = function () {
       });
       validatorForms.each(this._handle_form);
     }
+
+    /**
+     * We need to check if the data-validator-name or data-validator-same-as is present
+     * and also make sure it's one of the valid filters.
+     * 
+     * If we don't have a filter, we let the developer know
+     * that he made a misatke via an usefull error message.
+     */
+
   }, {
-    key: '_handle_form',
+    key: "_compile_form_input",
+    value: function _compile_form_input(event, input) {
+      var errF = input.parent().find('.form__errors');
+      if (input.data('validator-name')) {
+        var name = input.data('validator-name');
+
+        if (!VALIDATIONS[name]) {
+          throw new Error("[" + name + "] doesn't exist as a valid validator option.\n            Try using one of the following:\n            " + Object.keys(VALIDATIONS).join(", ") + "  \n          ");
+          event.preventDefault();
+        }
+
+        /**
+         * No errors happaned at this point so we continue 
+         * validating the form
+         */
+        if (!Validator.validateField(input, name, errF)) {
+          event.preventDefault();
+        }
+      } else if (input.data('validator-same-as')) {
+        var asInput = (0, _jquery2.default)(input.data('validator-same-as'));
+        if (!Validator.validateEqual(input, asInput, errF)) {
+          event.preventDefault();
+        }
+      } else {
+        console.error(input);
+        throw new Error("Input does not have a data-validator-* class");
+        event.preventDefault();
+      }
+    }
+  }, {
+    key: "_handle_form",
     value: function _handle_form() {
       var form = (0, _jquery2.default)(this);
       var inputs = form.find('input');
       form.submit(function (event) {
-        var validations = [];
         inputs.each(function () {
           var input = (0, _jquery2.default)(this);
-          var name = input.data('validator-name');
-          var errF = input.parent().find('.form__errors');
-          /**
-           * We need to check if the data-validator-name is present
-           * and also make sure it's one of the valid filters.
-           * 
-           * If we don't have a filter, we let the developer know
-           * that he made a misatke via an usefull error message.
-           */
-          if (!name) {
-            console.error(input);
-            throw new Error('Input does not have a data-validator-name');
-            event.preventDefault();
-          }
-
-          if (!VALIDATIONS[name]) {
-            throw new Error('[' + name + '] doesn\'t exist as a valid validator option.\n            Try using one of the following:\n            ' + Object.keys(VALIDATIONS).join(", ") + '  \n          ');
-            event.preventDefault();
-          }
-
-          /**
-           * No errors happaned at this point so we continue 
-           * validating the form
-           */
-          if (!Validator.validateField(input, name, errF)) {
-            event.preventDefault();
-          }
+          Validator._compile_form_input(event, input);
         });
       });
     }

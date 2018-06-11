@@ -12,7 +12,7 @@
         <input 
           type='text' 
           class="form__control" 
-          placeholder='Kor. ime ili mail' 
+          placeholder='Mail' 
           data-validator-name='mail'  
         />
         <span class='form__errors'></span>
