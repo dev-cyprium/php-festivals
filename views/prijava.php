@@ -8,7 +8,7 @@
           type='text' 
           class="form__control" 
           placeholder='Kor. ime ili mail' 
-          data-validator-name='email'  
+          data-validator-name='mail'  
         />
         <span class='form__errors'></span>
       </div>
@@ -18,7 +18,7 @@
           type='password' 
           class="form__control" 
           placeholder='Lozinka' 
-          data-validator-name='password'
+          data-validator-name='lozinka'
         />
         <span class='form__errors'></span>
       </div>

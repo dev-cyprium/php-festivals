@@ -11114,10 +11114,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var VALIDATIONS = {
-  email: function email(value) {
+  mail: function mail(value) {
     return value.match(/^[a-z0-9\._\+\-]+@[a-z0-9\._]+$/);
   },
-  password: function password(value) {
+  lozinka: function lozinka(value) {
     return value.match(/^(?=.*[$%^@#]).{5,100}$/);
   }
 
@@ -11142,7 +11142,7 @@ var Validator = function () {
         errField.text('');
       } else {
         input.addClass('form-error');
-        errField.text('Field ' + validatorName + ' has invalid format');
+        errField.text('Polje ' + validatorName + ' nema dobar format');
       }
 
       return result;
@@ -11184,7 +11184,7 @@ var Validator = function () {
           }
 
           if (!VALIDATIONS[name]) {
-            throw new Error('[' + name + '] doesn\'t exist as a valid validator options\n            Try using one of the following:\n            ' + Object.keys(VALIDATIONS).join(", ") + '  \n          ');
+            throw new Error('[' + name + '] doesn\'t exist as a valid validator option.\n            Try using one of the following:\n            ' + Object.keys(VALIDATIONS).join(", ") + '  \n          ');
             event.preventDefault();
           }
 

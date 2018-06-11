@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
 const VALIDATIONS = {
-  email: (value) => value.match(/^[a-z0-9\._\+\-]+@[a-z0-9\._]+$/),
-  password: (value) => value.match(/^(?=.*[$%^@#]).{5,100}$/)
+  mail: (value) => value.match(/^[a-z0-9\._\+\-]+@[a-z0-9\._]+$/),
+  lozinka: (value) => value.match(/^(?=.*[$%^@#]).{5,100}$/)
 }
 
 
@@ -21,7 +21,7 @@ export default class Validator {
       errField.text('')
     } else {
       input.addClass('form-error')
-      errField.text(`Field ${validatorName} has invalid format`)
+      errField.text(`Polje ${validatorName} nema dobar format`)
     }
 
     return result
@@ -59,7 +59,7 @@ export default class Validator {
         }
 
         if(!VALIDATIONS[name]) {
-          throw new Error(`[${name}] doesn't exist as a valid validator options
+          throw new Error(`[${name}] doesn't exist as a valid validator option.
             Try using one of the following:
             ${Object.keys(VALIDATIONS).join(", ")}  
           `)
