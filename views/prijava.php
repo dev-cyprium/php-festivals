@@ -1,7 +1,12 @@
 <div class='site-form'>
   <h1 class='site-form__title'>Prijava</h1>
+  <?php
+    if(isset($_POST['login-submit'])) {
+      echo "Poslato";
+    }
+  ?>
   <div class='site-form__wrap'>
-    <form class='form' data-validator-namespace="login">
+    <form action='/prijava' method='post' class='form' data-validator-namespace="login">
       
       <div class='form__group'>
         <input 
@@ -22,7 +27,7 @@
         />
         <span class='form__errors'></span>
       </div>
-      <button class='form__submit form__submit--primary'>
+      <button name='login-submit' class='form__submit form__submit--primary'>
         Prijavi se
       </button>
     </form>
