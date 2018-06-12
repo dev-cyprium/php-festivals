@@ -1,6 +1,6 @@
 export default class Tabs {
     constructor() {
-        if(document.querySelectorAll('tabs').length) {
+        if(document.querySelectorAll('.tabs').length) {
             this.tab = document.querySelectorAll('.tabs')[0]
             this.tabs = this.tab.querySelectorAll('.tab')
             this.active = 1
