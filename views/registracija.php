@@ -42,7 +42,7 @@
         <input 
           type='password' 
           class="form__control" 
-          placeholder='Lozinka ponovow' 
+          placeholder='Lozinka ponovo' 
           data-validator-same-as='#lozinka'
         />
         <span class='form__errors'></span>
