@@ -38,7 +38,8 @@
         "email" => $state["email"],
         "korisnicko_ime" => $username,
         "password_hash" => $password,
-        "datum_registracije" => $datum
+        "datum_registracije" => $datum,
+        "id_role" => 2
       ]
     ];
   }

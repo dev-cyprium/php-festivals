@@ -1,13 +1,26 @@
+<?php if(userLogged()) {
+  redirect("/");
+}?>
+
 <div class='site-form'>
   <h1 class='site-form__title'>Prijava</h1>
   <?php
     if(isset($_POST['login-submit'])) {
         $email = $_POST['email'];
         $lozinka = $_POST['lozinka'];
-        $user = fetchBy($conn, 'korisnici', [
-          "email" => $email,
-          "password_hash" => md5($lozinka)
-        ]);
+        $query = "select k.*, r.naziv from korisnici k join role r on korisnici.id_role = r.id 
+                  where k.email=:email and k.password_hash=:lozinka";
+        safeQuery($conn, $query, [
+            "email" => $email,
+            "password_hash" => md5($lozinka)
+        ], true);
+
+        if($user) {
+          $_SESSION['user'] = $user;
+          redirect("/");
+        } else {
+          $error['email'] = 'Email/Lozinka nije dobra';
+        }
     }
   ?>
   <div class='site-form__wrap'>
@@ -21,7 +34,9 @@
           data-validator-name='mail'
           name='email'
         />
-        <span class='form__errors'></span>
+        <span class='form__errors'>
+          <?= hasError($error, 'email', $error['email']) ?>
+        </span>
       </div>
 
       <div class='form__group'>

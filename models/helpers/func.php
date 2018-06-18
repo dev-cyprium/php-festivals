@@ -1,16 +1,19 @@
-<?php 
+<?php
 
+  /**
+   * @param PDO $conn the connection to the database
+   * @param string $table the table name
+   * @return bool|PDOStatement returns all records for a given table
+   */
   function fetchAll(PDO $conn, string $table) {
     return $conn->query("SELECT * FROM $table");
   }
 
-  function fetchBy(PDO $conn, string $table, array $clause, $fetchOne=false) {
-    $key = array_keys($clause)[0];
-    $val = $clause[$key];
-    $query = "select * from $table
-              where $key=:$key";
+  function safeQuery(PDO $conn, $query, array $bindings, $fetchOne=false) {
     $stmt = $conn->prepare($query);
-    $stmt->bindParam(":$key", $val);
+    foreach($bindings as $key => &$val) {
+      $stmt->bindParam(":$key", $val);
+    }
     $stmt->execute();
     if($fetchOne) {
       return $stmt->fetch();
@@ -77,12 +80,28 @@
     return '';
   }
 
-  function redirect($location) {
+  /**
+   * @param string $location
+   * A simple wrapper which
+   */
+  function redirect(string $location) {
     header("Location: $location");
   }
 
+  /**
+   * @return bool
+   * Returns weather or not is a user logged
+   * in with session.
+   */
   function userLogged() {
     if(isset($_SESSION['user'])) {
+      return true;
+    }
+    return false;
+  }
+
+  function adminLogged() {
+    if(userLogged() && $_SESSION['user']->naziv == 'admin') {
       return true;
     }
     return false;
