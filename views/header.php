@@ -4,6 +4,7 @@
         <?php foreach(fetchLinks($conn) as $link): ?>
           <?php if(userLogged()  && $link->hide_logged == 1) continue ?>
           <?php if(!userLogged() && $link->hide_logged == 2) continue ?>
+          <?php if(!adminLogged() && $link->hide_logged == 3) continue ?>
             <li>
                 <a 
                     class='<?= $route['route'] == $link->name ? "active" : "" ?>' 
