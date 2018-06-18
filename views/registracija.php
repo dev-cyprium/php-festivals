@@ -8,9 +8,10 @@
       try { 
         $toInsert = insertValidate(getUserParams(), getUserValidations(), 'userTransform');
         if($id = insert($conn, $toInsert)) {
-            $query = "select k.*, r.naziv from korisnici k join role r on korisnici.id_role = r.id where k.id=:id";
+            $query = "select k.*, r.naziv from korisnici k join role r on k.id_role = r.id where k.id=:id";
             $user = safeQuery($conn, $query, ["id" => $id], true);
             $_SESSION['user'] = $user;
+            redirect("/");
         } else {
             $error['email'] = 'Mail adresa je vec zauzeta';
         }

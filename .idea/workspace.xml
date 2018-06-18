@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd05b522-8efa-4503-b73a-38838b40a856" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e3d1f3e-33f8-423c-98e8-a6d3c70f917b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e3d1f3e-33f8-423c-98e8-a6d3c70f917b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/helpers/func.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/helpers/func.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/prijava.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/prijava.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/registracija.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/registracija.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,20 +66,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registracija.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="registracija.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/registracija.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="115" />
+            <state relative-caret-position="286">
+              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="func.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="func.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/helpers/func.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="550">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
             </state>
           </provider>
         </entry>
@@ -108,9 +103,9 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2e3d1f3e-33f8-423c-98e8-a6d3c70f917b/console.sql" />
         <option value="$PROJECT_DIR$/views/header.php" />
         <option value="$PROJECT_DIR$/models/users.php" />
-        <option value="$PROJECT_DIR$/views/registracija.php" />
         <option value="$PROJECT_DIR$/views/prijava.php" />
         <option value="$PROJECT_DIR$/models/helpers/func.php" />
+        <option value="$PROJECT_DIR$/views/registracija.php" />
       </list>
     </option>
   </component>
@@ -188,12 +183,12 @@
       <option name="presentableId" value="Default" />
       <updated>1529277144950</updated>
       <workItem from="1529277146030" duration="7534000" />
-      <workItem from="1529324727975" duration="3457000" />
+      <workItem from="1529324727975" duration="4190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10991000" />
+    <option name="totallyTimeSpent" value="11724000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="25" width="1867" height="1055" extended-state="6" />
@@ -212,7 +207,7 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991323" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -251,7 +246,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -351,17 +346,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/registracija.php">
+    <entry file="file://$PROJECT_DIR$/models/helpers/func.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="115" />
+        <state relative-caret-position="550">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/helpers/func.php">
+    <entry file="file://$PROJECT_DIR$/views/registracija.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="286">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
         </state>
       </provider>
     </entry>
