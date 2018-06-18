@@ -8,11 +8,11 @@
     if(isset($_POST['login-submit'])) {
         $email = $_POST['email'];
         $lozinka = $_POST['lozinka'];
-        $query = "select k.*, r.naziv from korisnici k join role r on korisnici.id_role = r.id 
+        $query = "select k.*, r.naziv from korisnici k join role r on k.id_role = r.id 
                   where k.email=:email and k.password_hash=:lozinka";
-        safeQuery($conn, $query, [
+        $user = safeQuery($conn, $query, [
             "email" => $email,
-            "password_hash" => md5($lozinka)
+            "lozinka" => md5($lozinka)
         ], true);
 
         if($user) {
