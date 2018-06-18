@@ -76,3 +76,14 @@
     }
     return '';
   }
+
+  function redirect($location) {
+    header("Location: $location");
+  }
+
+  function userLogged() {
+    if(isset($_SESSION['user'])) {
+      return true;
+    }
+    return false;
+  }

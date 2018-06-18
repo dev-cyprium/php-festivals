@@ -2,6 +2,8 @@
     <nav>
         <ul>
         <?php foreach(fetchLinks($conn) as $link): ?>
+          <?php if(userLogged()  && $link->hide_logged == 1) continue ?>
+          <?php if(!userLogged() && $link->hide_logged == 2) continue ?>
             <li>
                 <a 
                     class='<?= $route['route'] == $link->name ? "active" : "" ?>' 
