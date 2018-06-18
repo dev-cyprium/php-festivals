@@ -4,8 +4,9 @@
     if(isset($_POST['register-submit'])) {
       try { 
         $toInsert = insertValidate(getUserParams(), getUserValidations(), 'userTransform');
-        if(insert($conn, $toInsert)) {
-            echo "Uspesno ste se registrovali";
+        if($id = insert($conn, $toInsert)) {
+            $user = fetchBy($conn, 'korisnici', ["id" => $id], true);
+            $_SESSION['user'] = $user;
         } else {
             $error['email'] = 'Mail adresa je vec zauzeta';
         }
