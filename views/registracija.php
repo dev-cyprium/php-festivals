@@ -4,7 +4,11 @@
     if(isset($_POST['register-submit'])) {
       try { 
         $toInsert = insertValidate(getUserParams(), getUserValidations(), 'userTransform');
-        insert($conn, $toInsert);
+        if(insert($conn, $toInsert)) {
+            echo "Uspesno ste se registrovali";
+        } else {
+            $error['email'] = 'Mail adresa je vec zauzeta';
+        }
       } catch(Exception $e) {
         echo $e->getMessage();
       }
@@ -16,12 +20,14 @@
       <div class='form__group'>
         <input 
           type='text' 
-          class="form__control" 
+          class="form__control <?= hasError($error, 'email', 'form-error')  ?>"
           placeholder='Email' 
           data-validator-name='mail'  
           name='email'
         />
-        <span class='form__errors'></span>
+        <span class='form__errors'>
+            <?= hasError($error, 'email', $error['email']) ?>
+        </span>
       </div>
 
       <div class='form__group'>
@@ -59,7 +65,7 @@
         Registruj se
       </button>
     </form>
-    <p>Imas nalog? <a href='/prijava'>Prijavi se</a></p>
+    <p>Imaš nalog? <a href='/prijava'>Prijavi se</a></p>
   </div>
 </div>
 

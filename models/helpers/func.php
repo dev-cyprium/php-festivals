@@ -9,8 +9,6 @@
             if(isset($_POST[$param])) {
                 $state[$param] = $_POST[$param];
             } else {
-                // validacija na front-endu postoji
-                // dovoljno je samo spreciti
                 throw new Error("Param $param not provided!");
             }
         }
@@ -48,5 +46,18 @@
         foreach($insertStructure['data'] as $key => &$value) {
           $stmt->bindParam(":$key", $value);
         }
-        $stmt->execute();
+        try{
+          $stmt->execute();
+          return true;
+        } catch(PDOException $e) {
+          return false;
+        }
+
+    }
+
+    function hasError(&$var, $error, $errText) {
+      if(isset($var) && isset($var[$error])) {
+        return $errText;
+      }
+      return '';
     }

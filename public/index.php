@@ -1,5 +1,7 @@
 <?php
     ob_start();
+    session_start();
+
     // Configuration
     require_once "../config/constants.php";
     require_once "../config/router.php";
