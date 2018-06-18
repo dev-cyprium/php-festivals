@@ -2,7 +2,12 @@
   <h1 class='site-form__title'>Prijava</h1>
   <?php
     if(isset($_POST['login-submit'])) {
-      echo "Poslato";
+        $email = $_POST['email'];
+        $lozinka = $_POST['lozinka'];
+        $user = fetchBy($conn, 'korisnici', [
+          "email" => $email,
+          "password_hash" => md5($lozinka)
+        ]);
     }
   ?>
   <div class='site-form__wrap'>
@@ -13,7 +18,8 @@
           type='text' 
           class="form__control" 
           placeholder='Mail' 
-          data-validator-name='mail'  
+          data-validator-name='mail'
+          name='email'
         />
         <span class='form__errors'></span>
       </div>
@@ -24,6 +30,7 @@
           class="form__control" 
           placeholder='Lozinka' 
           data-validator-name='lozinka'
+          name='lozinka'
         />
         <span class='form__errors'></span>
       </div>
