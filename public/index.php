@@ -3,12 +3,14 @@
     // Configuration
     require_once "../config/constants.php";
     require_once "../config/router.php";
-
+    
     // Database
     require_once PROJECT_ROOT . "/config/database.php";
-   
+    
     // Models
+    require_once MODEL_DIR . "/helpers/func.php";
     require_once MODEL_DIR . "/links.php";
+    require_once MODEL_DIR . "/users.php";
 ?>
 <!DOCTYPE html>
 <html>

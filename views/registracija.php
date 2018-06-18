@@ -2,7 +2,12 @@
   <h1 class='site-form__title'>Registracija</h1>
   <?php
     if(isset($_POST['register-submit'])) {
-      echo "Poslato";
+      try { 
+        $toInsert = insertValidate(getUserParams(), getUserValidations(), 'userTransform');
+        insert($conn, $toInsert);
+      } catch(Exception $e) {
+        echo $e->getMessage();
+      }
     }
   ?>
   <div class='site-form__wrap'>
@@ -14,6 +19,7 @@
           class="form__control" 
           placeholder='Email' 
           data-validator-name='mail'  
+          name='email'
         />
         <span class='form__errors'></span>
       </div>
@@ -24,6 +30,7 @@
           class="form__control" 
           placeholder='Ime i prezime' 
           data-validator-name='ime'  
+          name='imeprezime'
         />
         <span class='form__errors'></span>
       </div>
@@ -35,6 +42,7 @@
           class="form__control" 
           placeholder='Lozinka' 
           data-validator-name='lozinka'
+          name='lozinka'
         />
         <span class='form__errors'></span>
       </div>
