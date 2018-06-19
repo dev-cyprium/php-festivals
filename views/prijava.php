@@ -29,7 +29,7 @@
       <div class='form__group'>
         <input 
           type='text' 
-          class="form__control" 
+          class="form__control <?= hasError($error, 'email', 'form-error')  ?>"
           placeholder='Mail' 
           data-validator-name='mail'
           name='email'
