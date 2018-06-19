@@ -13684,13 +13684,19 @@ var VALIDATIONS = {
       return value.match(/^[A-ZŠĐČĆŽ][a-zšđčćž]+(\s[A-ZŠĐČĆŽ][a-zšđčćž]+)+$/);
     },
     msg: "Ime nije u dobrom formatu"
+  },
+  "not-empty": {
+    fn: function fn(value) {
+      return value !== '';
+    },
+    msg: "Mora biti popunjeno"
   }
-
-  /**
-   * Generic form validator
-   */
-
 };
+
+/**
+ * Generic form validator
+ */
+
 var Validator = function () {
   function Validator() {
     _classCallCheck(this, Validator);
@@ -13717,7 +13723,7 @@ var Validator = function () {
     value: function validateEqual(inputOne, inputTwo, errField) {
       var valueOne = inputOne.val();
       var valueTwo = inputTwo.val();
-      var result = valueOne == valueTwo;
+      var result = valueOne === valueTwo;
       if (result) {
         inputOne.removeClass('form-error');
         errField.text('');
@@ -13757,7 +13763,6 @@ var Validator = function () {
 
         if (!VALIDATIONS[name]) {
           throw new Error("[" + name + "] doesn't exist as a valid validator option.\n            Try using one of the following:\n            " + Object.keys(VALIDATIONS).join(", ") + "  \n          ");
-          event.preventDefault();
         }
 
         /**
@@ -13775,14 +13780,13 @@ var Validator = function () {
       } else {
         console.error(input);
         throw new Error("Input does not have a data-validator-* class");
-        event.preventDefault();
       }
     }
   }, {
     key: "_handle_form",
     value: function _handle_form() {
       var form = (0, _jquery2.default)(this);
-      var inputs = form.find('input');
+      var inputs = form.find('input, textarea');
       form.submit(function (event) {
         inputs.each(function () {
           var input = (0, _jquery2.default)(this);

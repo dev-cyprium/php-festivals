@@ -22,12 +22,23 @@
         <input
           type='text'
           class="form__control date-input"
-          name='datum',
+          name='datum'
+          data-validator-name='not-empty'
           placeholder="Datum odrzavanja"
         />
+        <span class='form__errors'></span>
+      </div>
+
+      <div class='form__group'>
+        <textarea
+          class='form__control'
+          placeholder='Description'
+          data-validator-name='not-empty'
+        ></textarea>
+        <span class='form__errors'></span>
       </div>
       <button name='login-submit' class='form__submit form__submit--primary'>
-        Prijavi se
+        Postavi
       </button>
     </form>
   </div>
