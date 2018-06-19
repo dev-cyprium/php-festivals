@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bd05b522-8efa-4503-b73a-38838b40a856" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/_utils.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/_utils.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/partials/_festivals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/partials/_festivals.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/app.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/festivali.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/festivali.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,22 +61,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_utils.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/css/_utils.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Nesto nije u redu</find>
       <find>fetchBy</find>
+      <find>form__cont</find>
+      <find>.form__cont</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -89,12 +83,14 @@
         <option value="$PROJECT_DIR$/views/registracija.php" />
         <option value="$PROJECT_DIR$/views/header.php" />
         <option value="$PROJECT_DIR$/assets/css/main.scss" />
-        <option value="$PROJECT_DIR$/views/festivali.php" />
-        <option value="$PROJECT_DIR$/assets/css/partials/_festivals.scss" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2e3d1f3e-33f8-423c-98e8-a6d3c70f917b/console.sql" />
         <option value="$PROJECT_DIR$/views/prijava.php" />
         <option value="$PROJECT_DIR$/models/helpers/func.php" />
+        <option value="$PROJECT_DIR$/assets/css/_variables.scss" />
+        <option value="$PROJECT_DIR$/assets/css/partials/_festivals.scss" />
         <option value="$PROJECT_DIR$/assets/css/_utils.scss" />
+        <option value="$PROJECT_DIR$/assets/css/partials/_login.scss" />
+        <option value="$PROJECT_DIR$/views/festivali.php" />
       </list>
     </option>
   </component>
@@ -112,11 +108,11 @@
       <server host="0.0.0.0" id="955c3536-43c4-474b-9068-9090f5aac871" name="0.0.0.0" port="2222" />
     </servers>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="53" />
     <option name="y" value="25" />
     <option name="width" value="934" />
-    <option name="height" value="1055" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -164,13 +160,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="prija&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/prijava.php&#10;re&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/registracija.php&#10;.scss&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/partials/_header.scss&#10;contact&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/partials/_contact.scss&#10;VAR&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/_variables.scss&#10;header.php&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/header.php&#10;reg&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/registracija.php&#10;users.php&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/models/users.php&#10;header&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/header.php&#10;festi&#9;null&#9;null&#10;func.php&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/models/helpers/func.php&#10;regi&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/registracija.php" />
+    <property name="SearchEverywhereHistoryKey" value="varia&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/_variables.scss&#10;fes&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/festivali.php&#10;fesi&#9;null&#9;null&#10;festi&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/partials/_festivals.scss&#10;prija&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/prijava.php&#10;re&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/registracija.php&#10;.scss&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/partials/_header.scss&#10;contact&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/partials/_contact.scss&#10;VAR&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/assets/css/_variables.scss&#10;header.php&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/header.php&#10;reg&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/registracija.php&#10;users.php&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/models/users.php&#10;header&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/header.php&#10;func.php&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/models/helpers/func.php&#10;regi&#9;FILE&#9;file:///home/stefankupresak/faks/php-proj/views/registracija.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -196,27 +192,27 @@
       <updated>1529277144950</updated>
       <workItem from="1529277146030" duration="7534000" />
       <workItem from="1529324727975" duration="9756000" />
-      <workItem from="1529405814765" duration="1267000" />
+      <workItem from="1529405814765" duration="8330000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18557000" />
+    <option name="totallyTimeSpent" value="25620000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="53" y="25" width="1867" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="53" y="25" width="934" height="1055" extended-state="4" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15431082" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.329718" />
-      <window_info anchor="right" id="Database" order="3" weight="0.18835804" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25813448" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.15427928" />
+      <window_info anchor="bottom" id="Docker" order="8" />
+      <window_info anchor="right" id="Database" order="3" weight="0.18806307" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.25813448" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -225,31 +221,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="8" weight="0.35032538" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.35032538" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Database Console" order="0" weight="0.35032538" />
-      <window_info anchor="bottom" id="Docker" order="8" />
-      <window_info anchor="bottom" id="Run" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15431082" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.18835804" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25813448" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.3991323" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -410,13 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/partials/_festivals.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2e3d1f3e-33f8-423c-98e8-a6d3c70f917b/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -428,13 +394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/festivali.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -450,8 +409,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/_utils.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        <state relative-caret-position="298">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/partials/_login.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/festivali.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="80" column="26" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/partials/_festivals.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
