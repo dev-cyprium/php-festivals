@@ -4,6 +4,7 @@ import Tabs from "./tabs";
 import alerts from "./alerts";
 import Contact from "./contact";
 import Validator from './validators';
+import transform from './dates';
 
 window.App = {}
 App.alerts = alerts
@@ -13,7 +14,8 @@ function boot() {
     let tabs = new Tabs();
     let contact = new Contact();
     
-    Validator.initializeFormValidators()
+    Validator.initializeFormValidators();
+    transform();
 }
 
 window.addEventListener('DOMContentLoaded', boot);

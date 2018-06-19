@@ -20,9 +20,10 @@
 
       <div class='form__group'>
         <input
-          type='date'
-          class="form__control"
-          name='datum'
+          type='text'
+          class="form__control date-input"
+          name='datum',
+          placeholder="Datum odrzavanja"
         />
       </div>
       <button name='login-submit' class='form__submit form__submit--primary'>
@@ -31,5 +32,3 @@
     </form>
   </div>
 </div>
-
-
