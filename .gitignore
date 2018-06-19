@@ -6,3 +6,6 @@ assets/node_modules
 
 # Ignore vscode
 .vscode
+
+# Ignore idea folder
+.idea
