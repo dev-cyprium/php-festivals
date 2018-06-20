@@ -4,6 +4,8 @@ import 'pickadate/lib/picker.date';
 
 export default function transform() {
   $(".date-input").pickadate({
-    container: this
+    container: this,
+    formatSubmit: 'yyyy/mm/dd',
+    hiddenName: true
   });
 }

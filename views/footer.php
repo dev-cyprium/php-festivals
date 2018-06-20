@@ -20,7 +20,7 @@
             </div>
             <div class='col logo-foot'>
                 <h1>Domen</h1>
-                <a href='#'>
+                <a href='https://bluegrid.io/' target='_blank'>
                     <img src='assets/images/bluegrid.png' alt='Blue Grid doo' />
                 </a>
             </div>

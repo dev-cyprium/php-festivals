@@ -13437,7 +13437,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function transform() {
   (0, _jquery2.default)(".date-input").pickadate({
-    container: this
+    container: this,
+    formatSubmit: 'yyyy/mm/dd',
+    hiddenName: true
   });
 }
 });
