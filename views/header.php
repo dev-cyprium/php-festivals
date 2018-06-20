@@ -6,6 +6,9 @@
           <?php if(!userLogged() && $link->hide_logged == 2)  continue ?>
           <?php if(!adminLogged() && $link->hide_logged == 3) continue ?>
             <li>
+                <?php if($link->name == 'dokumentacija'): ?>
+                    <a href='https://github.com/dev-cyprium/php-festivals' target='_blank'>Dokumentacija</a>
+                <?php else: ?>
                 <a 
                     class='<?= $route['route'] == $link->name ? "active" : "" ?>' 
                     href='<?= "/" . $link->name ?>'
@@ -13,6 +16,7 @@
                 >
                         <?= $link->labela ?>
                 </a>
+                <?php endif ?>
             </li>
         <?php endforeach ?>
         </ul>
