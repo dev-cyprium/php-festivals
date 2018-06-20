@@ -5,7 +5,7 @@ Serbian festivals is a web application used to manage, present and make festival
  - PHP 7.2
  - Git
  - HTML 5
- - CSS 3
+ - SASS
  - JavaScript (Ecma6)
 
 ## Build Process
