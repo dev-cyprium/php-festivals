@@ -835,22 +835,25 @@ footer {
     color: #0353a4;
     text-align: center; }
 
-.festival__slika {
-  display: block; }
-  .festival__slika img {
-    height: 250px;
-    width: auto; }
-
-.festival h2 {
-  font-size: 3rem;
-  color: #0353a4; }
-
-.festival h3 {
-  font-size: 1.8rem;
-  color: gray;
-  margin-top: .3em; }
-  .festival h3 i {
-    margin: 0 .5em; }
+.festival {
+  margin: 2em; }
+  .festival__slika {
+    display: block; }
+    .festival__slika img {
+      height: 250px;
+      width: 100%; }
+  .festival h2 {
+    font-size: 3rem;
+    color: #0353a4; }
+  .festival h3 {
+    font-size: 1.8rem;
+    color: gray;
+    margin-top: .3em; }
+    .festival h3 i {
+      margin: 0 .5em; }
+  .festival p {
+    margin-top: .5em;
+    font-size: 1.4rem; }
 
 
 /*# sourceMappingURL=app.css.map*/

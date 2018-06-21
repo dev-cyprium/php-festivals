@@ -17,12 +17,13 @@
 }
 
 .festival {
+  margin: 2em;
   &__slika {
     display: block;
 
     img {
       height: 250px;
-      width: auto;
+      width: 100%;
     }
   }
   h2 {
@@ -37,5 +38,9 @@
     i {
       margin: 0 .5em;
     }
+  }
+  p {
+    margin-top: .5em;
+    font-size: 1.4rem;
   }
 }

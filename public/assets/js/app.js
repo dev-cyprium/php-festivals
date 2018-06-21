@@ -13288,14 +13288,18 @@ var _validators = require("./validators");
 
 var _validators2 = _interopRequireDefault(_validators);
 
+var _search = require("./search");
+
+var _search2 = _interopRequireDefault(_search);
+
 var _dates = require("./dates");
 
 var _dates2 = _interopRequireDefault(_dates);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Main JS file
-window.App = {};
+window.App = {}; // Main JS file
+
 App.alerts = _alerts2.default;
 
 function boot() {
@@ -13305,6 +13309,8 @@ function boot() {
 
     _validators2.default.initializeFormValidators();
     (0, _dates2.default)();
+
+    _search2.default.initializeSearchBar();
 }
 
 window.addEventListener('DOMContentLoaded', boot);
@@ -13585,7 +13591,77 @@ var Map = function () {
 exports.default = Map;
 });
 
-;require.register("js/tabs.js", function(exports, require, module) {
+;require.register("js/search.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function debounce(func, wait, immediate) {
+  var timeout = void 0;
+  return function () {
+    var context = this;
+    var args = arguments;
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+var SearchFestival = function () {
+  function SearchFestival() {
+    _classCallCheck(this, SearchFestival);
+  }
+
+  _createClass(SearchFestival, [{
+    key: 'initializeSearchBar',
+    value: function initializeSearchBar() {
+      this.searchInput = (0, _jquery2.default)("#search-festivals");
+      this.searchInput.keyup(debounce(this.handleSearch.bind(this), 250));
+    }
+  }, {
+    key: 'handleSearch',
+    value: function handleSearch() {
+      var val = this.searchInput.val();
+      _jquery2.default.ajax({
+        method: 'GET',
+        dataType: 'JSON',
+        url: '/api/search?term=' + val,
+        success: function success(data) {
+          if (val === '') {
+            history.pushState('festivali', '', 'festivali');
+          } else {
+            history.pushState('festivali', '', 'festivali?term=' + val);
+          }
+          console.log(data);
+        }
+      });
+    }
+  }]);
+
+  return SearchFestival;
+}();
+
+exports.default = new SearchFestival();
+});
+
+require.register("js/tabs.js", function(exports, require, module) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
