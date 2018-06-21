@@ -34,7 +34,7 @@
      */
     function forApi($unparsed) {
         $matches = [];
-        $reg = '/^api(\/.*)$/';
+        $reg = '/^api(\/[^?]*)/';
         preg_match_all($reg, $unparsed, $matches);
         $str = $matches[1][0];
         return substr($str, 1);
