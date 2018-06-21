@@ -21,7 +21,7 @@
     return $stmt->fetchAll();
   }
 
-  function insertValidate($insertParams, $validations, Callable $transform) {
+  function insertValidate($insertParams, $validations, Callable $transform, $extra=[]) {
       $state = [];
       foreach($insertParams as $param) {
           if(isset($_POST[$param])) {
@@ -37,7 +37,9 @@
               throw new Error("Param $field nije dobar");
           }
       }
-
+      if(!empty($extra)) {
+        return $transform($state, $extra);
+      }
       return $transform($state);
   }
 

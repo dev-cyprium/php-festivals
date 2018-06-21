@@ -1,19 +1,49 @@
 <?php if(!adminLogged()) redirect("/") ?>
 
 <?php if(isset($_POST['festival-submit'])) {
-  $naziv = $_POST['naziv'];
-  $datum = $_POST['datum'];
-  $desc  = $_POST['opis'];
+  $slika = $_FILES['slika'];
+  $type  = $slika['type'];
+  $size  = $slika['size'];
+  $naziv = $slika['name'];
+  $tmp   = $slika['tmp_name'];
 
-  echo $naziv;
-  echo $datum;
-  echo $desc;
+  $validTypes = [
+    "image/jpeg",
+    "image/jpg"
+  ];
+  $errors = [];
+
+  if(!in_array($type, $validTypes)) {
+    $errors[] = "Slika nije u dobrom formatu, mora biti (mora biti jpg ili jpeg)";
+  }
+
+  if($size > 4000000) {
+    $errors[] = "Slika mora biti manja od 4MB";
+  }
+
+  if(empty($errors)) {
+    $noviNaziv = time() . "_" . $naziv;
+    $putanja = PROJECT_ROOT . "/public/assets/images/" . $noviNaziv;
+
+    if(move_uploaded_file($tmp, $putanja)) {
+      
+    }
+  }
+
+
+  var_dump($slika);
+/*
+  $toInsert = insertValidate(getFestivalParams(), getFestivalValidations(),
+    'festivalTransform', ["putanja" => $putanja]);
+  insert($conn, $toInsert);
+*/
+
 }?>
 
 <div class='site-form'>
   <h1 class='site-form__title'>Novi festival</h1>
   <div class='site-form__wrap'>
-    <form action='/admin' method='post' class='form' data-validator-namespace="login">
+    <form action='/admin' enctype='multipart/form-data' method='post' class='form' data-validator-namespace="login">
 
       <div class='form__group'>
         <input
@@ -55,6 +85,7 @@
             class='form__control'
             placeholder='Description'
             data-validator-name='not-empty'
+            name='slika'
         />
         <span class='form__errors'></span>
       </div>

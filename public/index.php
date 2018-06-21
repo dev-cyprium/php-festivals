@@ -13,6 +13,7 @@
     require_once MODEL_DIR . "/helpers/func.php";
     require_once MODEL_DIR . "/links.php";
     require_once MODEL_DIR . "/users.php";
+    require_once MODEL_DIR . "/festivals.php";
 ?>
 <!DOCTYPE html>
 <html>
