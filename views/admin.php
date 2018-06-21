@@ -24,7 +24,7 @@
   if(empty($errors)) {
     $noviNaziv = time() . "_" . $naziv;
     $putanja = PROJECT_ROOT . "/public/assets/images/" . $noviNaziv;
-    resize_image($tmp, 250, 'resize_image_by_width');
+    resize_image($tmp, 450, 'resize_image_by_width');
     $webPutanja = "/assets/images/" . $noviNaziv;
 
     if(move_uploaded_file($tmp, $putanja)) {
