@@ -35,3 +35,8 @@
     ];
   }
 
+  function festivalPrettyDate($fullDbTimestamp) {
+    $datum = explode(" ", $fullDbTimestamp)[0];
+    list($year, $month, $day) = explode("-", $datum);
+    return date("d / m / Y", mktime(0, 0, 0, $month, $day, $year));
+  }
