@@ -67,7 +67,8 @@ class SearchFestival {
   redrawPage(data) {
     $('.festivali__list').html('');
     data.forEach((festival) => {
-      $('.festivali__list').append($(template(festival)));
+      let festDOM = $(template(festival)).css("visibility", "none");
+      $('.festivali__list').append(festDOM);
     });
   }
 }

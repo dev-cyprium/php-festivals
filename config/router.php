@@ -7,7 +7,10 @@
     function resolveRoute(PDO $conn) {
         $links = fetchLinks($conn);
         $uri   = $_SERVER['REQUEST_URI'];
-        $route = substr($uri, strpos($uri, '/')+1);
+        $route = $t = substr($uri, strpos($uri, '/')+1);
+        if(strpos($t, "?") !== false) {
+          $route = substr($t, 0, strpos($t, '?'));
+        }
         $patt  = '/^api.*$/';
         if(preg_match($patt, $route)) {
             return [

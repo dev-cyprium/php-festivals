@@ -13671,7 +13671,8 @@ var SearchFestival = function () {
     value: function redrawPage(data) {
       (0, _jquery2.default)('.festivali__list').html('');
       data.forEach(function (festival) {
-        (0, _jquery2.default)('.festivali__list').append((0, _jquery2.default)(template(festival)));
+        var festDOM = (0, _jquery2.default)(template(festival)).css("visibility", "none");
+        (0, _jquery2.default)('.festivali__list').append(festDOM);
       });
     }
   }]);
