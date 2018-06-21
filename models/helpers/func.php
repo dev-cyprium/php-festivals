@@ -108,3 +108,36 @@
     }
     return false;
   }
+
+  /*============ IMAGE MANIPULATION ===========*/
+  function resize_image($file, $target, Callable $callback) {
+    list($originalWidth, $originalHeight) = getimagesize($file);
+    $ratio = $originalWidth / $originalHeight;
+    list($targetWidth, $targetHeight) = $callback($ratio, $target);
+    $originalImage = imagecreatefromjpeg($file);
+    $targetImage = imagecreatetruecolor($targetWidth, $targetHeight);
+    imagecopyresampled($targetImage, $originalImage,
+      0, 0, 0, 0,
+      $targetWidth, $targetHeight,
+      $originalWidth, $originalHeight);
+    imagejpeg($targetImage, $file, 100);
+  }
+
+  function resize_image_by_width($ratio, $targetWidth) {
+    if($ratio >= 1) {
+      $targetHeight = $targetWidth / $ratio;
+    } else {
+      throw new Exception("Wrong image form suplied");
+      return;
+    }
+    return [$targetWidth, $targetHeight];
+  }
+  function resize_image_by_height($ratio, $targetHeight) {
+    if($ratio < 1) {
+      $targetWidth = $targetHeight * $ratio;
+    } else {
+      throw new Exception("Wrong image format supplied");
+      return;
+    }
+    return [$targetWidth, $targetHeight];
+  }

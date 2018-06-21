@@ -24,20 +24,14 @@
   if(empty($errors)) {
     $noviNaziv = time() . "_" . $naziv;
     $putanja = PROJECT_ROOT . "/public/assets/images/" . $noviNaziv;
+    resize_image($tmp, 250, 'resize_image_by_width');
 
     if(move_uploaded_file($tmp, $putanja)) {
-      
+      $toInsert = insertValidate(getFestivalParams(), getFestivalValidations(),
+        'festivalTransform', ["putanja" => $putanja]);
+      insert($conn, $toInsert);
     }
   }
-
-
-  var_dump($slika);
-/*
-  $toInsert = insertValidate(getFestivalParams(), getFestivalValidations(),
-    'festivalTransform', ["putanja" => $putanja]);
-  insert($conn, $toInsert);
-*/
-
 }?>
 
 <div class='site-form'>
@@ -54,7 +48,6 @@
           name='naziv'
         />
         <span class='form__errors'>
-          <?= hasError($error, 'email', $error['email']) ?>
         </span>
       </div>
 
@@ -66,7 +59,8 @@
           data-validator-name='not-empty'
           placeholder="Datum odrzavanja"
         />
-        <span class='form__errors'></span>
+        <span class='form__errors'>
+        </span>
       </div>
 
       <div class='form__group'>
@@ -87,7 +81,11 @@
             data-validator-name='not-empty'
             name='slika'
         />
-        <span class='form__errors'></span>
+        <span class='form__errors'>
+          <?php if(isset($errors)): ?>
+            <?= implode(", ", $errors) ?>
+          <?php endif ?>
+        </span>
       </div>
 
       <button name='festival-submit' class='form__submit form__submit--primary'>
