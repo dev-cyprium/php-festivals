@@ -65,10 +65,13 @@ class SearchFestival {
   }
 
   redrawPage(data) {
+    const timing = 300;
     $('.festivali__list').html('');
-    data.forEach((festival) => {
-      let festDOM = $(template(festival)).css("visibility", "none");
+    data.forEach((festival, i) => {
+      let festDOM = $(template(festival));
+      festDOM.hide();
       $('.festivali__list').append(festDOM);
+      festDOM.fadeIn(timing + i * timing);
     });
   }
 }

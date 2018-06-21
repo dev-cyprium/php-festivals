@@ -13669,10 +13669,13 @@ var SearchFestival = function () {
   }, {
     key: "redrawPage",
     value: function redrawPage(data) {
+      var timing = 300;
       (0, _jquery2.default)('.festivali__list').html('');
-      data.forEach(function (festival) {
-        var festDOM = (0, _jquery2.default)(template(festival)).css("visibility", "none");
+      data.forEach(function (festival, i) {
+        var festDOM = (0, _jquery2.default)(template(festival));
+        festDOM.hide();
         (0, _jquery2.default)('.festivali__list').append(festDOM);
+        festDOM.fadeIn(timing + i * timing);
       });
     }
   }]);
