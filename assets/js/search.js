@@ -16,6 +16,31 @@ function debounce(func, wait, immediate) {
   };
 }
 
+function template(festival) {
+  return `<div class='festival'>
+          <figure class='festival__slika'>
+            <img src='${festival.putanja}' />
+            <figcaption>
+              <h2>${festival.naziv}</h2>
+              <h3><i class="far fa-calendar-alt"></i>
+                ${formatDate(festival.datum)}</h3>
+              <h3><i class="fas fa-users"></i> 12 000</h3>
+            </figcaption>
+          </figure>
+          <p>${festival.opis}</p>
+        </div>`;
+}
+
+function formatDate(rawDate) {
+  var datum = rawDate.split(" ")[0];
+  var date = new Date(datum);
+  var final =
+    date.getUTCDate() + " / " +
+    (date.getUTCMonth()+1) + " / " +
+    date.getUTCFullYear();
+  return final;
+}
+
 class SearchFestival {
   initializeSearchBar() {
     this.searchInput = $("#search-festivals");
@@ -34,9 +59,16 @@ class SearchFestival {
         } else {
           history.pushState('festivali', '', `festivali?term=${val}`);
         }
-        console.log(data);
+        this.redrawPage(data);
       }
     })
+  }
+
+  redrawPage(data) {
+    $('.festivali__list').html('');
+    data.forEach((festival) => {
+      $('.festivali__list').append($(template(festival)));
+    });
   }
 }
 

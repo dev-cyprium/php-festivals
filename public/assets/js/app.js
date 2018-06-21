@@ -13592,7 +13592,7 @@ exports.default = Map;
 });
 
 ;require.register("js/search.js", function(exports, require, module) {
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -13600,7 +13600,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _jquery = require('jquery');
+var _jquery = require("jquery");
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -13624,33 +13624,54 @@ function debounce(func, wait, immediate) {
   };
 }
 
+function template(festival) {
+  return "<div class='festival'>\n          <figure class='festival__slika'>\n            <img src='" + festival.putanja + "' />\n            <figcaption>\n              <h2>" + festival.naziv + "</h2>\n              <h3><i class=\"far fa-calendar-alt\"></i>\n                " + formatDate(festival.datum) + "</h3>\n              <h3><i class=\"fas fa-users\"></i> 12 000</h3>\n            </figcaption>\n          </figure>\n          <p>" + festival.opis + "</p>\n        </div>";
+}
+
+function formatDate(rawDate) {
+  var datum = rawDate.split(" ")[0];
+  var date = new Date(datum);
+  var final = date.getUTCDate() + " / " + (date.getUTCMonth() + 1) + " / " + date.getUTCFullYear();
+  return final;
+}
+
 var SearchFestival = function () {
   function SearchFestival() {
     _classCallCheck(this, SearchFestival);
   }
 
   _createClass(SearchFestival, [{
-    key: 'initializeSearchBar',
+    key: "initializeSearchBar",
     value: function initializeSearchBar() {
       this.searchInput = (0, _jquery2.default)("#search-festivals");
       this.searchInput.keyup(debounce(this.handleSearch.bind(this), 250));
     }
   }, {
-    key: 'handleSearch',
+    key: "handleSearch",
     value: function handleSearch() {
+      var _this = this;
+
       var val = this.searchInput.val();
       _jquery2.default.ajax({
         method: 'GET',
         dataType: 'JSON',
-        url: '/api/search?term=' + val,
+        url: "/api/search?term=" + val,
         success: function success(data) {
           if (val === '') {
-            history.pushState('festivali', '', 'festivali');
+            history.pushState('festivali', '', "festivali");
           } else {
-            history.pushState('festivali', '', 'festivali?term=' + val);
+            history.pushState('festivali', '', "festivali?term=" + val);
           }
-          console.log(data);
+          _this.redrawPage(data);
         }
+      });
+    }
+  }, {
+    key: "redrawPage",
+    value: function redrawPage(data) {
+      (0, _jquery2.default)('.festivali__list').html('');
+      data.forEach(function (festival) {
+        (0, _jquery2.default)('.festivali__list').append((0, _jquery2.default)(template(festival)));
       });
     }
   }]);

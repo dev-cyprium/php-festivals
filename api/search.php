@@ -1,4 +1,11 @@
 <?php
-  $data = $_GET['term'];
+  require "../config/database.php";
 
-  echo json_encode(["term" => $data]);
+  $term = $_GET['term'];
+
+  $query = "select * from festivali 
+            where lower(naziv) like lower(:naziv)";
+
+  $result = safeQuery($conn, $query, ["naziv" => "%$term%"]);
+
+  echo json_encode($result);
