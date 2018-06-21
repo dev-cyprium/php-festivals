@@ -839,7 +839,7 @@ footer {
   display: block; }
   .festival__slika img {
     height: 250px;
-    width: 250px; }
+    width: auto; }
 
 .festival h2 {
   font-size: 3rem;
