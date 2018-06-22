@@ -23,6 +23,7 @@
           placeholder='Naziv festivala'
           data-validator-name='not-empty'
           name='naziv'
+          id='naziv'
           disabled
         />
         <span class='form__errors'>
@@ -34,6 +35,7 @@
           type='text'
           class="form__control date-input disabled"
           name='datum'
+          id='datum'
           data-validator-name='not-empty'
           placeholder="Datum odrzavanja"
           disabled
@@ -48,6 +50,7 @@
           placeholder='Description'
           data-validator-name='not-empty'
           name='opis'
+          id='opis'
           disabled
         ></textarea>
         <span class='form__errors'></span>
@@ -60,6 +63,7 @@
           placeholder='Description'
           data-validator-name='not-empty'
           name='slika'
+          id='slika'
           disabled
         />
         <span class='form__errors'>
@@ -69,7 +73,7 @@
         </span>
       </div>
 
-      <button name='festival-submit' class='form__submit disabled form__submit--primary' disabled>
+      <button id='izmeni' name='festival-submit' class='form__submit disabled form__submit--primary' disabled>
         Izmeni
       </button>
     </form>

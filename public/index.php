@@ -33,6 +33,7 @@
             include_once(TEMPLATE_DIR . "/footer.php");
         } else if($route['type'] == 'api') {
             ob_clean();
+            header("Content-Type: appliaction/json");
             require_once(API_DIR . "/{$route['route']}.php");
             exit();
         }

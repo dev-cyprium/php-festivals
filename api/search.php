@@ -1,6 +1,4 @@
 <?php
-  require "../config/database.php";
-
   $term = $_GET['term'];
 
   $query = "select * from festivali 

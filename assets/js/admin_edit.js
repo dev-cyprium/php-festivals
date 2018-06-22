@@ -6,6 +6,39 @@ select2($);
 class AdminEdit {
   initializeAdminEdit() {
     $("#fetival-select").select2();
+    $("#fetival-select").change((ev) => {
+      this.handleChange(ev)
+    });
+    this.form = $(".site-form--admin_edit form");
+  }
+
+  handleChange(ev) {
+    const id = $("#fetival-select").val();
+    $.ajax({
+      url: '/api/festival',
+      method: 'POST',
+      data: {
+        id: id
+      },
+      success: (data) => {
+        const naziv  = this.form.find("#naziv");
+        const datum  = this.form.find("#datum");
+        const opis   = this.form.find("#opis");
+        const slika  = this.form.find("#slika");
+        const izmeni = this.form.find("#izmeni");
+        this.updateInput(naziv, data.naziv);
+        this.updateInput(datum, data.datum);
+        this.updateInput(opis,  data.opis);
+        this.updateInput(slika, null);
+        this.updateInput(izmeni, null);
+      }
+    });
+  }
+
+  updateInput(input, val) {
+     input.val(val);
+     input.removeAttr('disabled');
+     input.removeClass('disabled');
   }
 }
 

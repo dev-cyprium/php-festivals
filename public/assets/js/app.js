@@ -19115,7 +19115,46 @@ var AdminEdit = function () {
   _createClass(AdminEdit, [{
     key: 'initializeAdminEdit',
     value: function initializeAdminEdit() {
+      var _this = this;
+
       (0, _jquery2.default)("#fetival-select").select2();
+      (0, _jquery2.default)("#fetival-select").change(function (ev) {
+        _this.handleChange(ev);
+      });
+      this.form = (0, _jquery2.default)(".site-form--admin_edit form");
+    }
+  }, {
+    key: 'handleChange',
+    value: function handleChange(ev) {
+      var _this2 = this;
+
+      var id = (0, _jquery2.default)("#fetival-select").val();
+      _jquery2.default.ajax({
+        url: '/api/festival',
+        method: 'POST',
+        data: {
+          id: id
+        },
+        success: function success(data) {
+          var naziv = _this2.form.find("#naziv");
+          var datum = _this2.form.find("#datum");
+          var opis = _this2.form.find("#opis");
+          var slika = _this2.form.find("#slika");
+          var izmeni = _this2.form.find("#izmeni");
+          _this2.updateInput(naziv, data.naziv);
+          _this2.updateInput(datum, data.datum);
+          _this2.updateInput(opis, data.opis);
+          _this2.updateInput(slika, null);
+          _this2.updateInput(izmeni, null);
+        }
+      });
+    }
+  }, {
+    key: 'updateInput',
+    value: function updateInput(input, val) {
+      input.val(val);
+      input.removeAttr('disabled');
+      input.removeClass('disabled');
     }
   }]);
 
