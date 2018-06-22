@@ -1,5 +1,14 @@
 <?php if(!adminLogged()) redirect("/") ?>
 
+<?php
+  if(isset($_POST['festival-edit'])) {
+    $id = $_POST['festID'];
+    $toUpdate = insertValidate(getFestivalParams(), getFestivalValidations(),
+      'festivalTransform', []);
+    update($conn, $toUpdate, $id);
+  }
+?>
+
 <div class='site-form site-form--admin_edit'>
   <a href="admin">Novi Festival</a>
   <a href='admin_edit'>Edituj Festival</a>
@@ -15,6 +24,8 @@
       <?php endforeach ?>
     </select>
     <form action='/admin_edit' enctype='multipart/form-data' method='post' class='form' data-validator-namespace="login">
+      <input type='hidden' id='festID' name='festID' />
+
 
       <div class='form__group'>
         <input
@@ -61,7 +72,6 @@
           type='file'
           class='form__control disabled'
           placeholder='Description'
-          data-validator-name='not-empty'
           name='slika'
           id='slika'
           disabled
@@ -73,7 +83,7 @@
         </span>
       </div>
 
-      <button id='izmeni' name='festival-submit' class='form__submit disabled form__submit--primary' disabled>
+      <button id='izmeni' name='festival-edit' class='form__submit disabled form__submit--primary' disabled>
         Izmeni
       </button>
     </form>

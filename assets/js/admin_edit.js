@@ -28,6 +28,7 @@ class AdminEdit {
         const opis   = this.form.find("#opis");
         const slika  = this.form.find("#slika");
         const izmeni = this.form.find("#izmeni");
+        this.form.find("#festID").val(id);
         this.updateInput(naziv, data.naziv);
         this.updatePicker(datum, data.datum);
         this.updateInput(opis,  data.opis);

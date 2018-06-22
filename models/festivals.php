@@ -26,12 +26,11 @@
   function festivalTransform($state, $extra) {
     return [
       "tableName" => "festivali",
-      "data" => [
+      "data" => array_merge([
         "naziv" => $state["naziv"],
         "datum" => $state["datum"],
         "opis"  => $state["opis"],
-        "putanja" => $extra["putanja"]
-      ]
+      ], $extra)
     ];
   }
 

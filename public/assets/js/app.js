@@ -19145,6 +19145,7 @@ var AdminEdit = function () {
           var opis = _this2.form.find("#opis");
           var slika = _this2.form.find("#slika");
           var izmeni = _this2.form.find("#izmeni");
+          _this2.form.find("#festID").val(id);
           _this2.updateInput(naziv, data.naziv);
           _this2.updatePicker(datum, data.datum);
           _this2.updateInput(opis, data.opis);

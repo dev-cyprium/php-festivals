@@ -37,10 +37,7 @@
               throw new Error("Param $field nije dobar");
           }
       }
-      if(!empty($extra)) {
-        return $transform($state, $extra);
-      }
-      return $transform($state);
+      return $transform($state, $extra);
   }
 
   /**
@@ -54,6 +51,15 @@
       }, $names));
       return [implode(",",$names),$placeholders];
   }
+
+  function dataToUpdateColumns($data) {
+    $names = array_keys($data);
+    $placeholders = implode(", ", array_map(function($e) {
+      return "$e=:$e";
+    }, $names));
+    return $placeholders;
+  }
+
 
   function insert(PDO $conn, $insertStructure) {
       $tableName = $insertStructure['tableName'];
@@ -73,6 +79,23 @@
         return false;
       }
 
+  }
+
+  function update(PDO $conn, $updateStructure, $id) {
+    $tableName = $updateStructure['tableName'];
+    $placeholders = dataToUpdateColumns($updateStructure['data']);
+
+    $query = "UPDATE $tableName SET " . $placeholders . " WHERE id=:id";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(":id", $id);
+    foreach($updateStructure['data'] as $key => &$value) {
+      $stmt->bindParam(":$key", $value);
+    }
+    try {
+      $stmt->execute();
+    } catch(PDOException $e) {
+      var_dump($e->getMessage());
+    }
   }
 
   function hasError(&$var, $error, $errText) {
