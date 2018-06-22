@@ -1,0 +1,69 @@
+<?php if(!adminLogged()) redirect("/") ?>
+
+<div class='site-form site-form--admin_edit'>
+  <h1 class='site-form__title'>Edituj festival</h1>
+  <div class='site-form__wrap'>
+    <select>
+      <option value='0'>Izaberite</option>
+    </select>
+    <form action='/admin_edit' enctype='multipart/form-data' method='post' class='form' data-validator-namespace="login">
+
+      <div class='form__group'>
+        <input
+          type='text'
+          class="form__control disabled"
+          placeholder='Naziv festivala'
+          data-validator-name='not-empty'
+          name='naziv'
+          disabled
+        />
+        <span class='form__errors'>
+        </span>
+      </div>
+
+      <div class='form__group'>
+        <input
+          type='text'
+          class="form__control date-input disabled"
+          name='datum'
+          data-validator-name='not-empty'
+          placeholder="Datum odrzavanja"
+          disabled
+        />
+        <span class='form__errors'>
+        </span>
+      </div>
+
+      <div class='form__group'>
+        <textarea
+          class='form__control disabled'
+          placeholder='Description'
+          data-validator-name='not-empty'
+          name='opis'
+          disabled
+        ></textarea>
+        <span class='form__errors'></span>
+      </div>
+
+      <div class='form__group'>
+        <input
+          type='file'
+          class='form__control disabled'
+          placeholder='Description'
+          data-validator-name='not-empty'
+          name='slika'
+          disabled
+        />
+        <span class='form__errors'>
+          <?php if(isset($errors)): ?>
+            <?= implode(", ", $errors) ?>
+          <?php endif ?>
+        </span>
+      </div>
+
+      <button name='festival-submit' class='form__submit disabled form__submit--primary' disabled>
+        Izmeni
+      </button>
+    </form>
+  </div>
+</div>

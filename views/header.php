@@ -5,6 +5,7 @@
           <?php if(userLogged()  && $link->hide_logged == 1)  continue ?>
           <?php if(!userLogged() && $link->hide_logged == 2)  continue ?>
           <?php if(!adminLogged() && $link->hide_logged == 3) continue ?>
+          <?php if($link->visible != 1) continue ?>
             <li>
                 <?php if($link->name == 'dokumentacija'): ?>
                     <a href='https://github.com/dev-cyprium/php-festivals' target='_blank'>Dokumentacija</a>

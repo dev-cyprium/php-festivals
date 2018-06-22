@@ -20,7 +20,7 @@
     <p>
       <strong>Festivian</strong> je platforma koju sam inicijalno zamislio da sadrži mnogo više
       zanimljivih stvari, međutim na žalost zbog vremenskih ograničenja nisam uspeo da sprovedem
-      krajnu zamisao već samo sastaviti ovaj kratak prototip nekih funkcionalnosti sa kranje platforme
+      krajnu zamisao već samo sastaviti ovaj kratak prototip nekih funkcionalnosti sa kranje platforme.
     </p>
   </div>
 </div>

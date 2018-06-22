@@ -13231,6 +13231,16 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
   })();
 });
+require.register("js/admin_edit.js", function(exports, require, module) {
+'use strict';
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+});
+
 require.register("js/alerts.js", function(exports, require, module) {
 "use strict";
 

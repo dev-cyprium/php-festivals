@@ -46,6 +46,10 @@
       border: 2px solid lighten($primary, 20%);
     }
     margin-bottom: .75em;
+    &.disabled {
+      border: 2px solid gray;
+      cursor: not-allowed;
+    }
   }
   .form__submit {
     display: block;
@@ -55,12 +59,16 @@
     border: none;
     cursor: pointer;
     transition: background ease 250ms;
-  
+
     &--primary {
       background: $primary;
       color: white;
-      &:hover {
+      &:hover:not(.disabled) {
         background: lighten($primary, 20%);
+      }
+      &.disabled {
+        background: gray;
+        cursor: not-allowed;
       }
     }
   }

@@ -810,6 +810,9 @@ footer {
     margin-bottom: .75em; }
     .form .form__control:focus, .form .form__control:active {
       border: 2px solid #1286fb; }
+    .form .form__control.disabled {
+      border: 2px solid gray;
+      cursor: not-allowed; }
   .form .form__submit {
     display: block;
     width: 8em;
@@ -821,8 +824,11 @@ footer {
     .form .form__submit--primary {
       background: #0353a4;
       color: white; }
-      .form .form__submit--primary:hover {
+      .form .form__submit--primary:hover:not(.disabled) {
         background: #1286fb; }
+      .form .form__submit--primary.disabled {
+        background: gray;
+        cursor: not-allowed; }
 
 .festivali {
   max-width: 120rem;
