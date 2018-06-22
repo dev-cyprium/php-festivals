@@ -65,6 +65,10 @@ header ul a::selection {
     flex: 1 0 50%;
 }
 
+.text-center {
+    text-align: center;
+}
+
 $breakpoints: (
     'small': 767px,
     'medium': 992px,
