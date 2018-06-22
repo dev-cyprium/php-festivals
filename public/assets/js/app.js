@@ -19151,6 +19151,7 @@ var AdminEdit = function () {
           _this2.updateInput(opis, data.opis);
           _this2.updateInput(slika, null);
           _this2.updateInput(izmeni, null);
+          (0, _jquery2.default)("#preview").attr('src', data.putanja);
         }
       });
     }

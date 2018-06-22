@@ -3,9 +3,46 @@
 <?php
   if(isset($_POST['festival-edit'])) {
     $id = $_POST['festID'];
-    $toUpdate = insertValidate(getFestivalParams(), getFestivalValidations(),
-      'festivalTransform', []);
-    update($conn, $toUpdate, $id);
+
+    if(isset($_FILES['slika'])) {
+      $slika = $_FILES['slika'];
+      $type  = $slika['type'];
+      $size  = $slika['size'];
+      $naziv = $slika['name'];
+      $tmp   = $slika['tmp_name'];
+
+      $validTypes = [
+        "image/jpeg",
+        "image/jpg"
+      ];
+      $errors = [];
+
+      if(!in_array($type, $validTypes)) {
+        $errors[] = "Slika nije u dobrom formatu, mora biti (mora biti jpg ili jpeg)";
+      }
+
+      if($size > 4000000) {
+        $errors[] = "Slika mora biti manja od 4MB";
+      }
+
+      if(empty($errors)) {
+        // TODO: Obrisi staru
+        $noviNaziv = time() . "_" . $naziv;
+        $putanja = PROJECT_ROOT . "/public/assets/images/" . $noviNaziv;
+        resize_image($tmp, 450, 'resize_image_by_width');
+        $webPutanja = "/assets/images/" . $noviNaziv;
+
+        if(move_uploaded_file($tmp, $putanja)) {
+          $toUpdate = insertValidate(getFestivalParams(), getFestivalValidations(),
+            'festivalTransform', ["putanja" => $webPutanja]);
+          update($conn, $toUpdate, $id);
+        }
+      }
+    } else {
+      $toUpdate = insertValidate(getFestivalParams(), getFestivalValidations(),
+        'festivalTransform', []);
+      update($conn, $toUpdate, $id);
+    }
   }
 ?>
 
@@ -82,6 +119,8 @@
           <?php endif ?>
         </span>
       </div>
+
+      <img id='preview' />
 
       <button id='izmeni' name='festival-edit' class='form__submit disabled form__submit--primary' disabled>
         Izmeni

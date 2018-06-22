@@ -34,6 +34,7 @@ class AdminEdit {
         this.updateInput(opis,  data.opis);
         this.updateInput(slika, null);
         this.updateInput(izmeni, null);
+        $("#preview").attr('src', data.putanja);
       }
     });
   }
