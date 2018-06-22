@@ -1,6 +1,13 @@
 <?php if(!adminLogged()) redirect("/") ?>
 
 <?php
+  if(isset($_POST['festival-obrisi'])) {
+    $id = $_POST['id'];
+    $query = "DELETE FROM festivali WHERE id=:id";
+    safeQuery($conn, $query, ["id" => $id], true);
+  }
+
+
   if(isset($_POST['festival-edit'])) {
     $id = $_POST['festID'];
 
@@ -47,8 +54,8 @@
 ?>
 
 <div class='site-form site-form--admin_edit'>
-  <a href="admin">Novi Festival</a>
-  <a href='admin_edit'>Edituj Festival</a>
+  <a class='big-link' href="admin">Novi Festival</a>
+  <a class='big-link' href='admin_edit'>Edituj Festival</a>
   <h1 class='site-form__title'>Edituj festival</h1>
   <div class='site-form__wrap'>
     <?php
@@ -124,6 +131,9 @@
 
       <button id='izmeni' name='festival-edit' class='form__submit disabled form__submit--primary' disabled>
         Izmeni
+      </button>
+      <button id='obrisi' name='festival-obrisi' class='form__submit disabled form__submit--delete'>
+        Obriši
       </button>
     </form>
   </div>

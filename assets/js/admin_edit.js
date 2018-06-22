@@ -28,12 +28,14 @@ class AdminEdit {
         const opis   = this.form.find("#opis");
         const slika  = this.form.find("#slika");
         const izmeni = this.form.find("#izmeni");
+        const obrisi = this.form.find("#obrisi");
         this.form.find("#festID").val(id);
         this.updateInput(naziv, data.naziv);
         this.updatePicker(datum, data.datum);
         this.updateInput(opis,  data.opis);
         this.updateInput(slika, null);
         this.updateInput(izmeni, null);
+        this.updateInput(obrisi, null);
         $("#preview").attr('src', data.putanja);
       }
     });

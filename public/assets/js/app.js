@@ -19145,12 +19145,14 @@ var AdminEdit = function () {
           var opis = _this2.form.find("#opis");
           var slika = _this2.form.find("#slika");
           var izmeni = _this2.form.find("#izmeni");
+          var obrisi = _this2.form.find("#obrisi");
           _this2.form.find("#festID").val(id);
           _this2.updateInput(naziv, data.naziv);
           _this2.updatePicker(datum, data.datum);
           _this2.updateInput(opis, data.opis);
           _this2.updateInput(slika, null);
           _this2.updateInput(izmeni, null);
+          _this2.updateInput(obrisi, null);
           (0, _jquery2.default)("#preview").attr('src', data.putanja);
         }
       });

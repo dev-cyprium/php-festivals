@@ -69,6 +69,10 @@ header ul a::selection {
     text-align: center;
 }
 
+.big-link {
+  font-size: 2rem;
+}
+
 $breakpoints: (
     'small': 767px,
     'medium': 992px,

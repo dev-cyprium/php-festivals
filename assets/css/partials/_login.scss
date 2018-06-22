@@ -60,15 +60,24 @@
     cursor: pointer;
     transition: background ease 250ms;
 
+    &.disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+
     &--primary {
       background: $primary;
       color: white;
       &:hover:not(.disabled) {
         background: lighten($primary, 20%);
       }
-      &.disabled {
-        background: gray;
-        cursor: not-allowed;
+    }
+    &--delete {
+      background: crimson;
+      margin-top: 1em;
+      color: white;
+      &:hover:not(.disabled) {
+        background: lighten(crimson, 20%);
       }
     }
   }
