@@ -1,6 +1,7 @@
 .festivali {
   @include center-width();
   margin-top: 5rem;
+  width: 50rem;
   &__list {
     display: flex;
     flex-wrap: wrap;
