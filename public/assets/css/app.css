@@ -836,7 +836,8 @@ footer {
     text-align: center; }
 
 .festival {
-  margin: 2em; }
+  margin: 2em;
+  width: 50rem; }
   .festival__slika {
     display: block; }
     .festival__slika img {
