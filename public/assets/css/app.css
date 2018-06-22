@@ -856,5 +856,17 @@ footer {
     margin-top: .5em;
     font-size: 1.4rem; }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem; }
+  .pagination a {
+    text-decoration: none;
+    color: #0353a4;
+    transition: color linear 500ms;
+    margin: 0 .5em; }
+    .pagination a:hover, .pagination a:active {
+      color: #1286fb; }
+
 
 /*# sourceMappingURL=app.css.map*/
