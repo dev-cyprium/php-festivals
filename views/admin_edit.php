@@ -1,6 +1,8 @@
 <?php if(!adminLogged()) redirect("/") ?>
 
 <div class='site-form site-form--admin_edit'>
+  <a href="admin">Novi Festival</a>
+  <a href='admin_edit'>Edituj Festival</a>
   <h1 class='site-form__title'>Edituj festival</h1>
   <div class='site-form__wrap'>
     <?php

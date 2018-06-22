@@ -36,6 +36,8 @@
 }?>
 
 <div class='site-form'>
+  <a href="admin">Novi Festival</a>
+  <a href='admin_edit'>Edituj Festival</a>
   <h1 class='site-form__title'>Novi festival</h1>
   <div class='site-form__wrap'>
     <form action='/admin' enctype='multipart/form-data' method='post' class='form' data-validator-namespace="login">
