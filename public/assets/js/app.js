@@ -19101,6 +19101,10 @@ var _select = require('select2');
 
 var _select2 = _interopRequireDefault(_select);
 
+require('pickadate/lib/picker');
+
+require('pickadate/lib/picker.date');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19142,12 +19146,21 @@ var AdminEdit = function () {
           var slika = _this2.form.find("#slika");
           var izmeni = _this2.form.find("#izmeni");
           _this2.updateInput(naziv, data.naziv);
-          _this2.updateInput(datum, data.datum);
+          _this2.updatePicker(datum, data.datum);
           _this2.updateInput(opis, data.opis);
           _this2.updateInput(slika, null);
           _this2.updateInput(izmeni, null);
         }
       });
+    }
+  }, {
+    key: 'updatePicker',
+    value: function updatePicker(input, rawDate) {
+      var picker = input.pickadate('picker');
+      var date = rawDate.split(" ")[0];
+      picker.set('select', date, { format: 'yyyy-mm-dd' });
+      input.removeAttr('disabled');
+      input.removeClass('disabled');
     }
   }, {
     key: 'updateInput',

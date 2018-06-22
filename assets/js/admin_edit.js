@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import select2 from 'select2';
+import 'pickadate/lib/picker';
+import 'pickadate/lib/picker.date';
 
 select2($);
 
@@ -27,12 +29,20 @@ class AdminEdit {
         const slika  = this.form.find("#slika");
         const izmeni = this.form.find("#izmeni");
         this.updateInput(naziv, data.naziv);
-        this.updateInput(datum, data.datum);
+        this.updatePicker(datum, data.datum);
         this.updateInput(opis,  data.opis);
         this.updateInput(slika, null);
         this.updateInput(izmeni, null);
       }
     });
+  }
+
+  updatePicker(input, rawDate) {
+    let picker = input.pickadate('picker');
+    const date = rawDate.split(" ")[0];
+    picker.set('select', date, {format: 'yyyy-mm-dd'});
+    input.removeAttr('disabled');
+    input.removeClass('disabled');
   }
 
   updateInput(input, val) {
