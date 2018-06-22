@@ -4,7 +4,7 @@
   if(isset($_POST['festival-edit'])) {
     $id = $_POST['festID'];
 
-    if(isset($_FILES['slika'])) {
+    if(isset($_FILES['slika']) && $_FILES['slika']['size'] > 0) {
       $slika = $_FILES['slika'];
       $type  = $slika['type'];
       $size  = $slika['size'];
