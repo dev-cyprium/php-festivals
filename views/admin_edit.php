@@ -132,7 +132,7 @@
       <button id='izmeni' name='festival-edit' class='form__submit disabled form__submit--primary' disabled>
         Izmeni
       </button>
-      <button id='obrisi' name='festival-obrisi' class='form__submit disabled form__submit--delete'>
+      <button id='obrisi' name='festival-obrisi' class='form__submit disabled form__submit--delete' disabled>
         Obriši
       </button>
     </form>
