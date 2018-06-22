@@ -22,6 +22,6 @@ const Alerts = {
             $('body').append(el)
         }
     }
-}
+};
 
 export default Alerts;

@@ -6,6 +6,7 @@ import Contact from "./contact";
 import Validator from './validators';
 import SearchFestivals from './search';
 import transform from './dates';
+import AdminEdit from './admin_edit';
 
 window.App = {};
 App.alerts = alerts;
@@ -19,6 +20,7 @@ function boot() {
     transform();
 
     SearchFestivals.initializeSearchBar();
+    AdminEdit.initializeAdminEdit();
 }
 
 window.addEventListener('DOMContentLoaded', boot);

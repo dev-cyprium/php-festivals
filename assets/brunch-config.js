@@ -34,6 +34,9 @@ exports.config = {
         'lib/themes/default.css',
         'lib/themes/default.date.css'
       ],
+      select2: [
+        '/dist/css/select2.css'
+      ]
     }
   }
 };
