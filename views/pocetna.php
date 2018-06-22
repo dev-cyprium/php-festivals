@@ -11,7 +11,7 @@
             Planirajte unapred i rezervišite karte 
             već danas!
         </p>
-        <a href='#' class='btn-pretraizi'>Počni pretragu</a>
+        <a href='/festivali' class='btn-pretraizi'>Počni pretragu</a>
     </div>
     <div id='map'>
         <?= file_get_contents(PROJECT_ROOT . "/public/assets/images/serbia.svg"); ?>
