@@ -21,3 +21,4 @@
     define("DB_DATABASE", 'festival_baza');
     define("DB_USERNAME", env('username'));
     define("DB_PASSWORD", env('password'));
+    define("PAGINATION", 6);

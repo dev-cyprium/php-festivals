@@ -5,7 +5,11 @@
   <div class="festivali__wrap">
     <h1>Svi festivali</h1>
     <div class='festivali__list'>
-      <?php $festivali = safeQuery($conn, "select * from festivali", []) ?>
+      <?php
+        $count = safeQuery($conn, "select count(*) as num from festivali", [], true)->num;
+        $festivali = safeQuery($conn, "select * from festivali limit 1,".PAGINATION, []);
+        $pages = ceil($count / PAGINATION);
+      ?>
       <?php foreach($festivali as $festival): ?>
         <div class='festival'>
           <figure class='festival__slika'>
@@ -24,7 +28,7 @@
   </div>
   <div class='pagination'>
     <?php
-      for($i=1; $i<=5; $i++):?>
+      for($i=1; $i<=$pages; $i++):?>
         <a href='#'><?= $i ?></a>
       <?php endfor ?>
   </div>
