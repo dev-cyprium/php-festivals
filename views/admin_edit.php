@@ -3,8 +3,14 @@
 <div class='site-form site-form--admin_edit'>
   <h1 class='site-form__title'>Edituj festival</h1>
   <div class='site-form__wrap'>
+    <?php
+      $festivali = safeQuery($conn, "select * from festivali", []);
+    ?>
     <select id="fetival-select">
       <option value='0'>Izaberite</option>
+      <?php foreach($festivali as $fest): ?>
+        <option value='<?= $fest->id ?>'><?=$fest->naziv?></option>
+      <?php endforeach ?>
     </select>
     <form action='/admin_edit' enctype='multipart/form-data' method='post' class='form' data-validator-namespace="login">
 
