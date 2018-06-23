@@ -19883,7 +19883,17 @@ function initVoteSystem() {
   (0, _jquery2.default)(".vote-button").click(function (e) {
     e.preventDefault();
     var id = (0, _jquery2.default)(this).data('id');
-    alert('Glasam! ' + id);
+    _jquery2.default.ajax({
+      dataType: 'json',
+      method: 'POST',
+      url: '/api/glasaj',
+      data: {
+        id: id
+      },
+      success: function success(data) {
+        console.log(data);
+      }
+    });
   });
 }
 });

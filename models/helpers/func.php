@@ -9,6 +9,14 @@
     return $conn->query("SELECT * FROM $table");
   }
 
+  function runSafeQuery(PDO $conn, $query, array $bindings) {
+    $stmt = $conn->prepare($query);
+    foreach($bindings as $key => &$val) {
+      $stmt->bindParam(":$key", $val);
+    }
+    $stmt->execute();
+  }
+
   function safeQuery(PDO $conn, $query, array $bindings, $fetchOne=false) {
     $stmt = $conn->prepare($query);
     foreach($bindings as $key => &$val) {
