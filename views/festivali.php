@@ -24,10 +24,15 @@
           <figure class='festival__slika'>
             <img src='<?= $festival->putanja ?>' />
             <figcaption>
-              <h2><?= $festival->naziv ?></h2>
+              <div class='festival__title'>
+                <h2><?= $festival->naziv ?></h2>
+                <?php if(userLogged()): ?>
+                <a href='#'>Glasaj</a>
+                <?php endif ?>
+              </div>
               <h3><i class="far fa-calendar-alt"></i>
                 <?= festivalPrettyDate($festival->datum) ?></h3>
-              <h3><i class="fas fa-users"></i> 12 000</h3>
+              <!-- <h3><i class="fas fa-users"></i> 12 000</h3> -->
             </figcaption>
           </figure>
           <p><?= $festival->opis ?></p>
