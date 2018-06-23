@@ -19246,26 +19246,30 @@ var _dates = require("./dates");
 
 var _dates2 = _interopRequireDefault(_dates);
 
+var _vote = require("./vote");
+
+var _vote2 = _interopRequireDefault(_vote);
+
 var _admin_edit = require("./admin_edit");
 
 var _admin_edit2 = _interopRequireDefault(_admin_edit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Main JS file
-window.App = {};
+window.App = {}; // Main JS file
+
 App.alerts = _alerts2.default;
 
 function boot() {
-    var map = new _map2.default();
-    var tabs = new _tabs2.default();
-    var contact = new _contact2.default();
+  var map = new _map2.default();
+  var tabs = new _tabs2.default();
+  var contact = new _contact2.default();
 
-    _validators2.default.initializeFormValidators();
-    (0, _dates2.default)();
-
-    _search2.default.initializeSearchBar();
-    _admin_edit2.default.initializeAdminEdit();
+  _validators2.default.initializeFormValidators();
+  _search2.default.initializeSearchBar();
+  _admin_edit2.default.initializeAdminEdit();
+  (0, _dates2.default)();
+  (0, _vote2.default)();
 }
 
 window.addEventListener('DOMContentLoaded', boot);
@@ -19861,7 +19865,30 @@ exports.default = Validator;
 var validations = exports.validations = VALIDATIONS;
 });
 
-require.alias("jquery/dist/jquery.js", "jquery");
+require.register("js/vote.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = initVoteSystem;
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function initVoteSystem() {
+  (0, _jquery2.default)(".vote-button").click(function (e) {
+    e.preventDefault();
+    var id = (0, _jquery2.default)(this).data('id');
+    alert('Glasam! ' + id);
+  });
+}
+});
+
+;require.alias("jquery/dist/jquery.js", "jquery");
 require.alias("process/browser.js", "process");
 require.alias("select2/dist/js/select2.js", "select2");process = require('process');require.register("___globals___", function(exports, require, module) {
   

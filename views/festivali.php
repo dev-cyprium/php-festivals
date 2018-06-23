@@ -27,7 +27,7 @@
               <div class='festival__title'>
                 <h2><?= $festival->naziv ?></h2>
                 <?php if(userLogged()): ?>
-                <a href='#'>Glasaj</a>
+                <a data-id='<?= $festival->id ?>' class='vote-button' href='#'>Glasaj</a>
                 <?php endif ?>
               </div>
               <h3><i class="far fa-calendar-alt"></i>
