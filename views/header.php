@@ -8,7 +8,7 @@
           <?php if($link->visible != 1) continue ?>
             <li>
                 <?php if($link->name == 'dokumentacija'): ?>
-                    <a href='https://github.com/dev-cyprium/php-festivals' target='_blank'>Dokumentacija</a>
+                    <a href='/dokumentacija.pdf' target='_blank'>Dokumentacija</a>
                 <?php else: ?>
                 <a 
                     class='<?= $route['route'] == $link->name ? "active" : "" ?>' 
