@@ -22,6 +22,6 @@
         echo json_encode($errors);
     } else {
       $headers = "From: administrators@festivian.bluegrid.io \r\n";
-      mail("stefan_vg@hotmail.com", "Kontakt sa platforme festivian", $message . " Email: " . $email);
+      mail("stefan_vg@hotmail.com", "Kontakt sa platforme festivian", $message . " Email: " . $email, $headers);
     }
 
