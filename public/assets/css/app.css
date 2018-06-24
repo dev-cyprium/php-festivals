@@ -1026,6 +1026,15 @@ header ul a::selection {
 .big-link {
   font-size: 2rem; }
 
+.vote-table {
+  border-collapse: collapse;
+  font-size: 2rem;
+  margin-top: 1.5em;
+  width: 100%; }
+  .vote-table tr, .vote-table th, .vote-table td {
+    border: 1px solid #0353a4;
+    padding: 2em; }
+
 header {
   background: #0353a4;
   box-shadow: 0px 2px 6px 1px gray; }

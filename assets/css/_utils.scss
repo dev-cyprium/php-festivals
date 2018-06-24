@@ -73,6 +73,17 @@ header ul a::selection {
   font-size: 2rem;
 }
 
+.vote-table {
+    border-collapse: collapse;
+    font-size: 2rem;
+    margin-top: 1.5em;
+    width: 100%;
+    tr, th, td {
+        border: 1px solid $primary;
+        padding: 2em;
+    }
+}
+
 $breakpoints: (
     'small': 767px,
     'medium': 992px,
