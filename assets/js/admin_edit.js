@@ -7,11 +7,20 @@ select2($);
 
 class AdminEdit {
   initializeAdminEdit() {
+    $("#korisnik-select").select2();
     $("#fetival-select").select2();
     $("#fetival-select").change((ev) => {
       this.handleChange(ev)
     });
+    $("#korisnik-select").change((ev) => {
+      this.handleKorChange(ev);
+    });
     this.form = $(".site-form--admin_edit form");
+    this.korForm = $(".site-form--korisnik_edit form");
+  }
+
+  handleKorChange(ev) {
+    
   }
 
   handleChange(ev) {

@@ -19121,12 +19121,20 @@ var AdminEdit = function () {
     value: function initializeAdminEdit() {
       var _this = this;
 
+      (0, _jquery2.default)("#korisnik-select").select2();
       (0, _jquery2.default)("#fetival-select").select2();
       (0, _jquery2.default)("#fetival-select").change(function (ev) {
         _this.handleChange(ev);
       });
+      (0, _jquery2.default)("#korisnik-select").change(function (ev) {
+        _this.handleKorChange(ev);
+      });
       this.form = (0, _jquery2.default)(".site-form--admin_edit form");
+      this.korForm = (0, _jquery2.default)(".site-form--korisnik_edit form");
     }
+  }, {
+    key: 'handleKorChange',
+    value: function handleKorChange(ev) {}
   }, {
     key: 'handleChange',
     value: function handleChange(ev) {
