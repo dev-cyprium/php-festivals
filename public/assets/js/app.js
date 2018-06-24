@@ -19204,11 +19204,14 @@ var Alerts = {
     createAlert: function createAlert(message) {
         if (el) {
             el.css("display", "block");
-            el.find('.message').text(message);
+            el.find('.message').html(message);
         } else {
             el = (0, _jquery2.default)(template(message));
             (0, _jquery2.default)('body').append(el);
         }
+    },
+    closeAll: function closeAll() {
+        (0, _jquery2.default)(".alert").css('display', 'none');
     }
 };
 
@@ -19883,6 +19886,7 @@ function initVoteSystem() {
   (0, _jquery2.default)(".vote-button").click(function (e) {
     e.preventDefault();
     var id = (0, _jquery2.default)(this).data('id');
+    (0, _jquery2.default)(this).attr('disabled', 'true');
     _jquery2.default.ajax({
       dataType: 'json',
       method: 'POST',
@@ -19891,7 +19895,24 @@ function initVoteSystem() {
         id: id
       },
       success: function success(data) {
-        console.log(data);
+        App.alerts.createAlert(data.message);
+      },
+      error: function error(xhr) {
+        var ovde = '<a class=\'ukini\' href=\'#\'>ovde</a>';
+        App.alerts.createAlert(JSON.parse(xhr.responseText).message + (' (mozete ukinuti glas ' + ovde + ')'));
+        (0, _jquery2.default)('.ukini').click(function (e) {
+          e.preventDefault();
+          App.alerts.closeAll();
+          _jquery2.default.ajax({
+            dataType: 'json',
+            method: 'DELETE',
+            url: '/api/glasaj',
+            success: function success() {
+              console.log('Yo?');
+              App.alerts.createAlert('Uspesno obrisan glas');
+            }
+          });
+        });
       }
     });
   });

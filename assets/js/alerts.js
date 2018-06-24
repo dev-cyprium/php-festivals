@@ -16,11 +16,14 @@ const Alerts = {
     createAlert: (message) => {
         if(el) {
             el.css("display", "block");
-            el.find('.message').text(message);
+            el.find('.message').html(message);
         } else {
-            el = $(template(message))
+            el = $(template(message));
             $('body').append(el)
         }
+    },
+    closeAll: () => {
+      $(".alert").css('display', 'none');
     }
 };
 
