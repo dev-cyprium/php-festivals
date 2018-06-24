@@ -36,8 +36,7 @@
 }?>
 
 <div class='site-form'>
-  <a class='big-link' href="admin">Novi Festival</a>
-  <a class='big-link' href='admin_edit'>Edituj Festival</a>
+  <?php include_once "admin/admin_nav.php"; ?>
   <h1 class='site-form__title'>Novi festival</h1>
   <div class='site-form__wrap'>
     <form action='/admin' enctype='multipart/form-data' method='post' class='form' data-validator-namespace="login">

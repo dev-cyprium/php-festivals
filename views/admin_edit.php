@@ -54,8 +54,7 @@
 ?>
 
 <div class='site-form site-form--admin_edit'>
-  <a class='big-link' href="admin">Novi Festival</a>
-  <a class='big-link' href='admin_edit'>Edituj Festival</a>
+  <?php include_once 'admin/admin_nav.php' ?>
   <h1 class='site-form__title'>Edituj festival</h1>
   <div class='site-form__wrap'>
     <?php
