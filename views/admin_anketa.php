@@ -2,7 +2,7 @@
 
 <div class='site-form'>
   <?php include_once 'admin/admin_nav.php' ?>
-  <h1 class='site-form__title'>Edituj festival</h1>
+  <h1 class='site-form__title'>Statistika ankete</h1>
   <div class='site-form__wrap'>
     <?php
       $upit = "select f.naziv, count(*) as broj_glasova from glasanja g
